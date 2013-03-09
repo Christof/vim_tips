@@ -1,5 +1,22 @@
 # Vim tips
 ## Normal mode
+### Shortcuts
+
+| Longhand | Compound | Descriptions                                               |
+| -------- | -------- | ------------                                               |
+| `cl`     | `s`      | Replaces the underlying character but stays in insert mode |
+| `^C`     | `S`      | Changes the whole line independent of cursor positon       |
+
+### Operator commands
+
+| Trigger | Effect         |
+| ------- | ------         |
+| `g~`    | Swap case      |
+| `gu`    | Make lowercase |
+| `gU`    | Make upercase  |
+| `>`     | Shift right    |
+| `<`     | Shift left     |
+
 ### Motions
 #### Search
 The search command is exclusive so you can use it in `d{motion}`
@@ -39,3 +56,7 @@ sentence, for the paragraph a blank line is included. Those commands are
 not really motions, but can be used in visual and operator pending
 mode.
 
+### Little things
+#### Arithmetic
+`<C-a>` adds `[count]` to the number at or after the cursor, `<C-x>`
+subtracts. If no number is given the default is 1.
