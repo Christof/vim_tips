@@ -29,5 +29,13 @@ of section which should be selected:
 | `"`        | `"..."`     |
 | `` ` ``    | `` `...` `` |
 | `t`        | XML tag     |
+| w          | word        |
+| W          | WORD        |
+| s          | sentence    |
+| p          | paragraph   |
 
-Those commands are not really motions, but can be used in visual and operator pending mode.
+For word, WORD and sentence `a` includes one space after (or before) the word or
+sentence, for the paragraph a blank line is included. Those commands are
+not really motions, but can be used in visual and operator pending
+mode.
+
