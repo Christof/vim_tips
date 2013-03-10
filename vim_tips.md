@@ -56,6 +56,23 @@ sentence, for the paragraph a blank line is included. Those commands are
 not really motions, but can be used in visual and operator pending
 mode.
 
+#### Markers
+
+To mark a location use `m{a-zA-Z}` the lowercase letters are local to
+the file the upercase letters are global. `´{mark}` move to the linke of
+the mark. `` `{mark}`` moves to the exact position. Vim defines some
+special markers:
+
+| Shortcut | Description                                      |
+| -------- | -----------                                      |
+| `` `` `` | Poition before the last jump within current file |
+| `` `. `` | Location of last change                          |
+| `` `^ `` | Location of last insertion                       |
+| `` `[ `` | Start of last change or yank                     |
+| `` `] `` | End of last change or yank                       |
+| `` `< `` | Start of last visual selection                   |
+| `` `> `` | End of last visual selection                     |
+
 ### Little things
 #### Arithmetic
 `<C-a>` adds `[count]` to the number at or after the cursor, `<C-x>`
