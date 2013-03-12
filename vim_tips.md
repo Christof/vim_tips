@@ -73,6 +73,12 @@ special markers:
 | `` `< `` | Start of last visual selection                   |
 | `` `> `` | End of last visual selection                     |
 
+#### Jump between matching paranthesis
+
+`%` jumps between matching paranthesis like `()`, `{}` and `[]`, but it
+works also for XML tags and language constracts like `do end` and `if
+end` in ruby when the _matchit_ plugin is enabled.
+
 ### Little things
 #### Arithmetic
 `<C-a>` adds `[count]` to the number at or after the cursor, `<C-x>`
