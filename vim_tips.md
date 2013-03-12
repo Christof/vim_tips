@@ -74,6 +74,27 @@ any kind of paranthesis or `"` and `'`, like text-objects.
 works also for XML tags and language constracts like `do end` and `if
 end` in ruby when the _matchit_ plugin is enabled.
 
+#### Jump list
+
+`<C-o>` is like back in a browser and `<C-i>` like forward. `:jumps`
+shows the jump list. Jumps are generally larger as single character
+or word motions and can move between files. Some jump commands
+are listed below:
+
+| Command                | Effect                                       |
+| -------                | ------                                       |
+| `[line]G`              | Jump to specified line                       |
+| /{pattern}             | Jump to pattern                              |
+| `%`                    | Jump to matching parenthesis                 |
+| `(`/`)`                | Jump to start of previous/next sentence      |
+| `{`/`}`                | Jump to start of previous/next paragraph     |
+| `H`/`M`/`L`            | Jump to start of top/middle/bottom of screen |
+| `gf`                   | Jump to file name under the cursor           |
+| `C-]`                  | Jump to definition of keyword und der cursor |
+| `` `{mark}``/`´{mark}` | Jump to a mark                               |
+
+Vim maintains multiple jump lists. Each is scoped to a window.
+
 #### Markers
 
 To mark a location use `m{a-zA-Z}` the lowercase letters are local to
