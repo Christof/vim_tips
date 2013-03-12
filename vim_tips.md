@@ -1,4 +1,6 @@
 # Vim tips
+## Notes
+In all code examples * denotes the cursor position.
 ## Normal mode
 ### Shortcuts
 
@@ -22,11 +24,9 @@
 The search command is exclusive so you can use it in `d{motion}`
 commands and search for the first word which should not be deleted:
 
-	This is an example
+	*This is an example
 	d/an<CR>
-	an example
-
-The cursor ends up at a.
+	*an example
 
 #### Text objects
 Text objects can be used to select sections of text with particular
