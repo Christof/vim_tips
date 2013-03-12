@@ -56,6 +56,24 @@ sentence, for the paragraph a blank line is included. Those commands are
 not really motions, but can be used in visual and operator pending
 mode.
 
+#### Surround.vim
+
+Surround.vim is plugin which can be used to surround a selection with
+delimiters, change delimiters or delete delimiters. Delimiters can be
+any kind of paranthesis or `"` and `'`, like text-objects.
+
+| Old text         | Command | New text         | Description               |
+| -------          | ------- | --------         | -----------               |
+| `Hello w*orld`   | `ysiw)` | `Hello (world)`  | Add sourroundings `ys`    |
+| `"Hello *world"` | `cs"'`  | `'*Hello world'` | Change sourroundings `cs` |
+| `"Hello *world"` | `ds"`   | `*Hello world`   | Delete sourroundings `ds` |
+
+#### Jump between matching paranthesis
+
+`%` jumps between matching paranthesis like `()`, `{}` and `[]`, but it
+works also for XML tags and language constracts like `do end` and `if
+end` in ruby when the _matchit_ plugin is enabled.
+
 #### Markers
 
 To mark a location use `m{a-zA-Z}` the lowercase letters are local to
@@ -72,12 +90,6 @@ special markers:
 | `` `] `` | End of last change or yank                       |
 | `` `< `` | Start of last visual selection                   |
 | `` `> `` | End of last visual selection                     |
-
-#### Jump between matching paranthesis
-
-`%` jumps between matching paranthesis like `()`, `{}` and `[]`, but it
-works also for XML tags and language constracts like `do end` and `if
-end` in ruby when the _matchit_ plugin is enabled.
 
 ### Little things
 #### Arithmetic
