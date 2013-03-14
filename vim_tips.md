@@ -95,6 +95,16 @@ are listed below:
 
 Vim maintains multiple jump lists. Each is scoped to a window.
 
+#### Change list
+
+This is a record of made changes and can be queried with `:changes`.
+
+| Command | Effect                                               |
+| ------- | ------                                               |
+| `g;`    | Go backward in change list                           |
+| `g,`    | Go forward in change list                            |
+| `gi`    | Go to last insert location and switch to insert mode |
+
 #### Markers
 
 To mark a location use `m{a-zA-Z}` the lowercase letters are local to
