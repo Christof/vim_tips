@@ -81,17 +81,17 @@ shows the jump list. Jumps are generally larger as single character
 or word motions and can move between files. Some jump commands
 are listed below:
 
-| Command                | Effect                                       |
-| -------                | ------                                       |
-| `[line]G`              | Jump to specified line                       |
-| /{pattern}             | Jump to pattern                              |
-| `%`                    | Jump to matching parenthesis                 |
-| `(`/`)`                | Jump to start of previous/next sentence      |
-| `{`/`}`                | Jump to start of previous/next paragraph     |
-| `H`/`M`/`L`            | Jump to start of top/middle/bottom of screen |
-| `gf`                   | Jump to file name under the cursor           |
-| `C-]`                  | Jump to definition of keyword und der cursor |
-| `` `{mark}``/`´{mark}` | Jump to a mark                               |
+| Command                | Jumps to                                                |
+| -------                | ------                                                  |
+| `[line]G`              | specified line                                  |
+| /{pattern}             | pattern                                         |
+| `%`                    | matching parenthesis                            |
+| `(`/`)`                | start of previous/next sentence                 |
+| `{`/`}`                | start of previous/next paragraph                |
+| `H`/`M`/`L`            | start of top/middle/bottom of screen            |
+| `gf`                   | file name under the cursor (suffixesadd option) |
+| `C-]`                  | definition of keyword und der cursor            |
+| `` `{mark}``/`´{mark}` | a mark                                          |
 
 Vim maintains multiple jump lists. Each is scoped to a window.
 
