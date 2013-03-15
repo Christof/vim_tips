@@ -1,6 +1,8 @@
 # Vim tips
 ## Notes
 In all code examples * denotes the cursor position.
+_re_ after a command and in front of another command means that the default command which is the first one is remapped to the second, e.g. `<C-[>` _re_`<C-j>`.
+
 ## Normal mode
 ### Shortcuts
 
@@ -81,17 +83,17 @@ shows the jump list. Jumps are generally larger as single character
 or word motions and can move between files. Some jump commands
 are listed below:
 
-| Command                | Jumps to                                                |
-| -------                | ------                                                  |
-| `[line]G`              | specified line                                  |
-| /{pattern}             | pattern                                         |
-| `%`                    | matching parenthesis                            |
-| `(`/`)`                | start of previous/next sentence                 |
-| `{`/`}`                | start of previous/next paragraph                |
-| `H`/`M`/`L`            | start of top/middle/bottom of screen            |
-| `gf`                   | file name under the cursor (suffixesadd option) |
-| `C-]`                  | definition of keyword und der cursor            |
-| `` `{mark}``/`´{mark}` | a mark                                          |
+| Command                  | Jumps to                                        |
+| -------                  | ------                                          |
+| `[line]G`                | specified line                                  |
+| /{pattern}               | pattern                                         |
+| `%`                      | matching parenthesis                            |
+| `(`/`)`                  | start of previous/next sentence                 |
+| `{`/`}`                  | start of previous/next paragraph                |
+| `H`/`M`/`L`              | start of top/middle/bottom of screen            |
+| `gf`                     | file name under the cursor (suffixesadd option) |
+| `<C-]>` _re_`<C-j>`      | definition of keyword und der cursor            |
+| `` `{mark}`` _re_`<C-m>` | a mark                                          |
 
 Vim maintains multiple jump lists. Each is scoped to a window.
 
@@ -108,19 +110,19 @@ This is a record of made changes and can be queried with `:changes`.
 #### Markers
 
 To mark a location use `m{a-zA-Z}` the lowercase letters are local to
-the file the upercase letters are global. `´{mark}` move to the linke of
-the mark. `` `{mark}`` moves to the exact position. Vim defines some
-special markers:
+the file the upercase letters are global. `´{mark}` move to the line of
+the mark. `` `{mark}`` _re_`<C-m>{mark}` moves to the exact 
+position. Vim defines some special markers:
 
-| Shortcut | Description                                      |
-| -------- | -----------                                      |
+| Shortcut | Description                                       |
+| -------- | -----------                                       |
 | `` `` `` | Position before the last jump within current file |
-| `` `. `` | Location of last change                          |
-| `` `^ `` | Location of last insertion                       |
-| `` `[ `` | Start of last change or yank                     |
-| `` `] `` | End of last change or yank                       |
-| `` `< `` | Start of last visual selection                   |
-| `` `> `` | End of last visual selection                     |
+| `` `. `` | Location of last change                           |
+| `` `^ `` | Location of last insertion                        |
+| `` `[ `` | Start of last change or yank                      |
+| `` `] `` | End of last change or yank                        |
+| `` `< `` | Start of last visual selection                    |
+| `` `> `` | End of last visual selection                      |
 
 ### Little things
 #### Arithmetic
