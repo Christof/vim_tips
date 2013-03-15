@@ -1,7 +1,7 @@
 # Vim tips
 ## Notes
 In all code examples * denotes the cursor position.
-_re_ after a command and in front of another command means that the default command which is the first one is remapped to the second, e.g. `<C-[>` _re_`<C-j>`.
+_re_ after a command and in front of another command means that the default command which is the first one is remapped to the second, e.g. `<C-]>` _re_`<C-j>`.
 
 ## Normal mode
 ### Shortcuts
