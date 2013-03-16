@@ -11,6 +11,48 @@ _re_ after a command and in front of another command means that the default comm
 | `cl`     | `s`      | Replaces the underlying character but stays in insert mode |
 | `^C`     | `S`      | Changes the whole line independent of cursor positon       |
 
+### Copy & Paste
+
+Vim's copy command is called yank `y`, past is `p` and cut is `d`. They
+use the unnamed register `""` if not specified otherwise. A specific
+register can be used be preceeding the command with `"{register}"`.
+A register name can be a character from `a` to `z`. If a register is
+addressed with an uppercase letter the content is appended to it. On the
+other hand lowercase letters overwrite the content of the register.
+Another special register is the black hole register `"_` which doesn't
+store anything. This could also be a used in the example below.
+
+A yank does not only put the content into the unnamed register but also
+in the yank register `"0`. This is helpfull when replacing something
+with the last yanked content, because delete overwrites the unnamed
+register. Example:
+
+```
+v*ar = 1; process(1);
+yiw
+2f1
+var = 1; process(*1);
+diw
+var = 1; process(*);
+"0P
+var = 1; process(var);
+```
+
+`:reg "{register}` shows the content of the register or all registers
+if no register is given.
+
+Some more special registers:
+| Register | Content/Function                                |
+| -------- | ----------------                                |
+| `"+`     | Clipboard                                       |
+| `"*`     | Primary (most recently selected text)           |
+| `"=`     | Expression register. Can be used as calculator. |
+| `"%`     | Name of current file                            |
+| `"#`     | Name of alternate file                          |
+| `".`     | Last inserted text                              |
+| `":`     | Last ex command                                 |
+| `"/`     | Last search pattern                             |
+
 ### Operator commands
 
 | Trigger | Effect         |
