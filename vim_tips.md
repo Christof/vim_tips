@@ -38,6 +38,10 @@ var = 1; process(*);
 var = 1; process(var);
 ```
 
+When the paste command is issued in visual mode, the selected text
+is replaced. This is another possibility to solve the example above
+without the yank register.
+
 `:reg "{register}` shows the content of the register or all registers
 if no register is given.
 
