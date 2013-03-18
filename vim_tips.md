@@ -38,16 +38,27 @@ var = 1; process(*);
 var = 1; process(var);
 ```
 
+Pasting with `p` places the yanked content after the cursor and `P`
+before the cursor. Depending on the yankend content, before and after
+are relative to either characters or lines if a whole line was yanked.
+`gp` and `gP` have the same pasting behavior as the two previously
+described commands, but they place the cursor at the end of the placed
+text.
+
 When the paste command is issued in visual mode, the selected text
 is replaced. This is another possibility to solve the example above
 without the yank register.
+
+Pasting can also be achieved in insert mode by using `<C-r>{register}`.
+The unnamed register can be addressed with `"`.
 
 `:reg "{register}` shows the content of the register or all registers
 if no register is given.
 
 Some more special registers:
+
 | Register | Content/Function                                |
-| -------- | ----------------                                |
+| -------- | ----------------------------------------------- |
 | `"+`     | Clipboard                                       |
 | `"*`     | Primary (most recently selected text)           |
 | `"=`     | Expression register. Can be used as calculator. |
