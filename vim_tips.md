@@ -52,6 +52,14 @@ without the yank register.
 Pasting can also be achieved in insert mode by using `<C-r>{register}`.
 The unnamed register can be addressed with `"`.
 
+Using the systems paste command can result in strange formatted code
+because vim treats the in put as if someone was typing it and applys
+intendation rules. To disable autoindent, abbreviations and other
+features which are not usefull when pasting, the `paste` option can be
+set before pasting. The option can be unset with `:set nopaste`. It can
+also be bound to a key like F5 with `:set pasttoggle=<f5>`. Pasting from
+the clipboard register `"+` automatically enables the `paste` option.
+
 `:reg "{register}` shows the content of the register or all registers
 if no register is given.
 
