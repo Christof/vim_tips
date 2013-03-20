@@ -193,3 +193,22 @@ position. Vim defines some special markers:
 #### Arithmetic
 `<C-a>` adds `[count]` to the number at or after the cursor, `<C-x>`
 subtracts. If no number is given the default is 1.
+
+## Insert mode
+
+| Shortcut               | Description                              |
+| --------               | -----------                              |
+| `<C-h>`                | Same as backspace                        |
+| `<C-w>`                | Delete back one word                     |
+| `<C-u>`                | Delete back to start of line             |
+| `<C-o>`                | Switch to Insert Normal mode             |
+| `<C-r>{register}`      | Paste from register                      |
+| `<C-r><C-p>{register}` | Paste from register and fixe indentation |
+| `<C-r>=`               | Evaluate expression (Calculator)         |
+| `<C-T>`                | Insert one shiftwidth of indent          |
+| `<C-D>`                | Delete one shiftwidth of indent          |
+
+Insert Normal mode can be used to trigger one normal mode command, after
+which Vim returns automatically to insert mode. For example `<C-o>zz`
+centers the screen vertically and can be executed during writting in
+insert mode.
