@@ -222,3 +222,12 @@ Some normal mode commands which goe along the above shown shortcuts
 | -------     | -----------                          |
 | `ga`        | Show code for character under cursor |
 | `:digraphs` | Sho a table of digraphs              |
+
+### Replace mode
+
+Replace mode can be issued from Normal mode with `R`. It behaves like
+other editor when the insert key was presed. Tab characters can pose a
+problem in Replace mode if the mode is started on one of the 'spaces'
+representing the tab. An alternative is the Virtual Replace mode which
+handles the tab character like some space characters and is triggerde
+with `gR`.
