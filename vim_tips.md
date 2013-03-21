@@ -207,8 +207,18 @@ subtracts. If no number is given the default is 1.
 | `<C-r>=`               | Evaluate expression (Calculator)         |
 | `<C-T>`                | Insert one shiftwidth of indent          |
 | `<C-D>`                | Delete one shiftwidth of indent          |
+| `<C-v>{code}`          | Enter character by decimal code          |
+| `<C-v>u{code}`         | Enter character by hexadecimal code      |
+| `<C-v>{nondigit}`      | Enter nondigit literally                 |
+| `<C-k>{char1}{char2}`  | Enter character by digraph               |
 
 Insert Normal mode can be used to trigger one normal mode command, after
 which Vim returns automatically to insert mode. For example `<C-o>zz`
 centers the screen vertically and can be executed during writting in
 insert mode.
+
+Some normal mode commands which goe along the above shown shortcuts
+| Command     | Description                          |
+| -------     | -----------                          |
+| `ga`        | Show code for character under cursor |
+| `:digraphs` | Sho a table of digraphs              |
