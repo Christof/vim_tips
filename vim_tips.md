@@ -231,3 +231,16 @@ problem in Replace mode if the mode is started on one of the 'spaces'
 representing the tab. An alternative is the Virtual Replace mode which
 handles the tab character like some space characters and is triggerde
 with `gR`.
+
+
+## Visual mode
+
+Visual mode can be used to select text visually like in other editors
+when selecting text with the mouse. It is triggerd with `v` followed by
+movement commands.
+
+### Select mode
+
+Select mode differs from Visual mode in that the selected text can be
+replaced by starting to type. Switching between Visual and Select modes
+can be achieved with `<C-g>`.
