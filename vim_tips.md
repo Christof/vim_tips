@@ -218,6 +218,7 @@ centers the screen vertically and can be executed during writting in
 insert mode.
 
 Some normal mode commands which goe along the above shown shortcuts
+
 | Command     | Description                          |
 | -------     | -----------                          |
 | `ga`        | Show code for character under cursor |
@@ -237,7 +238,27 @@ with `gR`.
 
 Visual mode can be used to select text visually like in other editors
 when selecting text with the mouse. It is triggerd with `v` followed by
-movement commands.
+movement commands. In Visual mode the free end is indicated by the
+blinking cursor. The free end can be switched between the start of the
+selection and the end of the selection by pressing `o`.
+
+`V` starts the line-wise Visual mode. This can for example be used for
+line-wise visual command wich can also be repeated: `Vj>.` selects the
+current and next line and indents them twice.
+
+In gernal operators should be prefered to Visual commands if possible,
+because the later doesn't always work with the dot command in an
+expected way because the command is repeated for the same selection
+size. So a command on a word with `vit` might fail when repeated in the
+next line on another word, if that word has a different length.
+
+The `U` command in Visual mode changes the selection to upper case.
+
+`<C-v>` enables the block wise Visual mode. This can be used to edit
+text on more than one line. For example adding a ';' to three lines:
+`<C-v>jj$A;<ESC>`. The changes in text are only displayed on the first
+line and are processed for the other selected lines when the Visual mode
+is left by pressing escape.
 
 ### Select mode
 
