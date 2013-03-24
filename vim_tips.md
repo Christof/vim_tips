@@ -189,6 +189,14 @@ position. Vim defines some special markers:
 | `` `< `` | Start of last visual selection                    |
 | `` `> `` | End of last visual selection                      |
 
+### Macros
+
+A macro can be recoreded by pressing `q{register}`. Recording is
+indicated in the status line. By typing `q` again the recording is
+stopped. The macro can be displayed with `:reg {register}`. `^[` is used
+to indicate pressing of the escape key. A macro can be replayed with
+`[count]@{register}`. The last macro can be repeated with `@@`.
+
 ### Little things
 #### Arithmetic
 `<C-a>` adds `[count]` to the number at or after the cursor, `<C-x>`
