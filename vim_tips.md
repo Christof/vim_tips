@@ -195,7 +195,12 @@ A macro can be recoreded by pressing `q{register}`. Recording is
 indicated in the status line. By typing `q` again the recording is
 stopped. The macro can be displayed with `:reg {register}`. `^[` is used
 to indicate pressing of the escape key. A macro can be replayed with
-`[count]@{register}`. The last macro can be repeated with `@@`.
+`[count]@{register}`. The last macro can be repeated with `@@`. Playback is
+aborted if one of the commands fails. This can be thought of as serial
+execution. Parallel execution can be achieved with a visual selection
+(using probably line-wise Visual mode) and then executing `'<,'>normal
+@{register}`. This jumps over lines which produce an error (for example
+if a search command finds nothing on the line.)
 
 ### Little things
 #### Arithmetic
