@@ -200,7 +200,18 @@ aborted if one of the commands fails. This can be thought of as serial
 execution. Parallel execution can be achieved with a visual selection
 (using probably line-wise Visual mode) and then executing `'<,'>normal
 @{register}`. This jumps over lines which produce an error (for example
-if a search command finds nothing on the line.)
+if a search command finds nothing on the line). Commands can be added to
+a macro if the uppercase letter is used for the register.
+
+#### Executing macros in multiple files
+Macros can be executed in multiple files by putting all files which
+should be changed into the argument list (`:args {filepattern}`). The
+macro can be recorded as usual. Since the macro will be applied to all
+buffers, the current changes should be reverted with `:edit!`. `:argdo
+normal @{register}` executes the macro in all files. An alternative
+- which executes the macro in series - is to move to the next buffer with
+`:next` (or `:wnext` which also saves the changes) at the end of the macro 
+and execute it multiple times by prefixing the macro call with a count.
 
 ### Little things
 #### Arithmetic
