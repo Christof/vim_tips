@@ -213,6 +213,18 @@ normal @{register}` executes the macro in all files. An alternative
 `:next` (or `:wnext` which also saves the changes) at the end of the macro 
 and execute it multiple times by prefixing the macro call with a count.
 
+#### Example: Number items in a list
+
+```
+:let i = 1           // declare a vim script variable i
+qa                   // start macro recoding
+I<C-r>=i<CR>) <ESC>  // go to insert mode, evaluate i and add ) 
+:let i += 1          // increase i by 1
+q                    // stop recording
+jVG                  // go to next line and select until the end
+:'<,'>normal @a      // execute macro for the selected lines
+```
+
 ### Little things
 #### Arithmetic
 `<C-a>` adds `[count]` to the number at or after the cursor, `<C-x>`
