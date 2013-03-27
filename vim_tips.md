@@ -203,6 +203,19 @@ execution. Parallel execution can be achieved with a visual selection
 if a search command finds nothing on the line). Commands can be added to
 a macro if the uppercase letter is used for the register.
 
+Macros can be edited directly in vim as text by putting the content of
+the register into the file. This can be achieved with `"{register}p` or
+with `:put {register}`. The later always puts the content into a new
+lines below the current line, which is preferable for editing a macro.
+To get the edited text back into the register `"{register}dd` or (`:da`)
+can be used. This could cause problems because it appends a trailing
+`^J` for the linebreak. To avoid this, this longer version can be used:
+`0"{register}y$dd`. An alternative to editing the macro in the text is
+to use Vim script functions like `substitute()`. A list of functions can
+be found in the help files: `:h function-list`. Subsititue can be used
+like: `:let @{register}=substitute(@{register}, '{pattern}',
+'{replacement}', '{options like g}'`.
+
 #### Executing macros in multiple files
 Macros can be executed in multiple files by putting all files which
 should be changed into the argument list (`:args {filepattern}`). The
