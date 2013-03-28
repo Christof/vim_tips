@@ -314,3 +314,14 @@ is left by pressing escape.
 Select mode differs from Visual mode in that the selected text can be
 replaced by starting to type. Switching between Visual and Select modes
 can be achieved with `<C-g>`.
+
+## Patterns
+
+Patterns in Vim can be used to accomplish different tasks, like
+searching or substituting.
+
+The case sensitivity can be set globally by enabling the `ignorecase`
+setting. It can be overridden per search using `\c` for ignoring the
+case and `\C` to be case sensitive. The switch can be placed anywhere
+inside a pattern. Another global option is `smartcase` which ignores the
+case as long as now uppercase character is in the search pattern.
