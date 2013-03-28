@@ -325,3 +325,29 @@ setting. It can be overridden per search using `\c` for ignoring the
 case and `\C` to be case sensitive. The switch can be placed anywhere
 inside a pattern. Another global option is `smartcase` which ignores the
 case as long as now uppercase character is in the search pattern.
+
+In the default mode parenthesis `()` must be escaped for grouping. `{}`
+are per default also matched literally whereas square brackets `[]` have
+special meaning. A pattern for 6 digit hex values like a color in css 
+would look like:
+
+```
+/#\([0-9a-fA-F]\{6}\)
+```
+
+Note that the curly bracktes only have to be escaped when they are
+opened. The very magic search is closer to Perl, Pyhton or Ruby regular
+expressions and is enabled with `\v`. Now all characters except '_',
+letters and numbers have special meaning. The color example now could be
+written as:
+
+```
+/\v#([0-9a-fA-F]{6})
+```
+
+Using the `\x` character class for hex digits results in:
+
+```
+/\v#(\x{6})
+```
+
