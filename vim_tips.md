@@ -351,3 +351,16 @@ Using the `\x` character class for hex digits results in:
 /\v#(\x{6})
 ```
 
+In other cases it is useful to use verbatim searches. These can be
+enabeld with the very nomagic switch `\V`. Searching for example for
+'e.g.' would be `/e\.g\.` and `/\Ve.g.` with very nomagic mode. In this
+mode only `\` has a special meaning.
+
+Paraentheses (only in very magic mode with out escaping) can be used to
+capture submatches. For example duplicated words can be found with
+`\v(\w+)\_s+1\1>`. Captured submatches can be accessed with `\{number}`
+where the number starts at 1. `\0` is the entire match. In this
+expression the word boundaries are matched with `< >` and `\_s` matches
+whitespace or a linebreak. These submatches are not particularly useful
+for serach, but are very handy for substitutions.
+
