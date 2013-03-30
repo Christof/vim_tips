@@ -364,3 +364,18 @@ expression the word boundaries are matched with `< >` and `\_s` matches
 whitespace or a linebreak. These submatches are not particularly useful
 for serach, but are very handy for substitutions.
 
+`\zs` and `\ze` can be used to crop the match and make it to a subset of
+the pattern. Example: Seach for Vim but only highlight Vi `Vi\zem`.
+Another example is matching the content of a string without the
+delimiters: `/\v"\zs[^"]+\ze"`.
+
+| Character(s) | Meaning in regular expression                |
+| ------------ | -----------------------------                |
+| `\w`         | Word characters: letters, numbers and '_'    |
+| `\W`         | Everything except word characters            |
+| `%(...)`     | Don't capture submatch                       |
+| `\_s`        | Matches whitespace or linebreak              |
+| `<...>`      | Word boundaries (do not match any character) |
+| `\zs`        | Start of the match (also zero width)         |
+| `\ze`        | End of the match (also zero width)           |
+
