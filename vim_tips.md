@@ -354,9 +354,24 @@ Using the `\x` character class for hex digits results in:
 In other cases it is useful to use verbatim searches. These can be
 enabeld with the very nomagic switch `\V`. Searching for example for
 'e.g.' would be `/e\.g\.` and `/\Ve.g.` with very nomagic mode. In this
-mode only `\` has a special meaning.
+mode only `\`, `/` (only for forward searching) and `?` (only for
+backward searching) have a special meaning.
 
-Paraentheses (only in very magic mode with out escaping) can be used to
+Since the escaping of characters by hand can be cumbersome, Vim script
+has a function that can be used instead: `escape({string}, {chars})`.
+The first argument is the string in which characters should be escaped.
+This string could for example be passed by a register with
+`@{register}`. An URl which resides in register u could be searched for
+like:
+
+```
+/                                  // to bring up the search prompt (or ? for backward searches)
+/\V                                // to search literally
+<C-r>=                             // to go to the expression register prompt
+=escape(@u, getcmdtype().'\')<CR>  // escape all '/' and '\'. '.' concatenates strings
+```
+
+Parantheses (only in very magic mode with out escaping) can be used to
 capture submatches. For example duplicated words can be found with
 `\v(\w+)\_s+1\1>`. Captured submatches can be accessed with `\{number}`
 where the number starts at 1. `\0` is the entire match. In this
