@@ -315,6 +315,16 @@ Select mode differs from Visual mode in that the selected text can be
 replaced by starting to type. Switching between Visual and Select modes
 can be achieved with `<C-g>`.
 
+## Search
+
+A search can be initiated in Normal mode with either `/` for forward
+searches or `?` for backward searches. `n` moves to the next match in
+the initial direction, whereas `N` moves against that direction. `/<CR>`
+and `?<CR>` can be used to jump forward or backward to the next or previous
+match of the last used pattern. The up and down arrows (`<Up>`,
+`<Down>` also custom mapped to `<C-p>` and `<C-n>`) go through the
+search history.
+
 ## Patterns
 
 Patterns in Vim can be used to accomplish different tasks, like
