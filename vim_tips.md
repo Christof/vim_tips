@@ -323,7 +323,9 @@ the initial direction, whereas `N` moves against that direction. `/<CR>`
 and `?<CR>` can be used to jump forward or backward to the next or previous
 match of the last used pattern. The up and down arrows (`<Up>`,
 `<Down>` also custom mapped to `<C-p>` and `<C-n>`) go through the
-search history.
+search history. Highlighting of the search result can be enabled with
+`:set hlsearch` or disabled with `:set nohlsearch` (default). `:noh`
+mutes the highlighting temporarily until the next search.
 
 ## Patterns
 
