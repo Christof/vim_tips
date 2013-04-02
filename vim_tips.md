@@ -325,7 +325,13 @@ match of the last used pattern. The up and down arrows (`<Up>`,
 `<Down>` also custom mapped to `<C-p>` and `<C-n>`) go through the
 search history. Highlighting of the search result can be enabled with
 `:set hlsearch` or disabled with `:set nohlsearch` (default). `:noh`
-mutes the highlighting temporarily until the next search.
+mutes the highlighting temporarily until the next search. When
+`incsearch` is enabled (default is disabled), Vim highlight matches as
+the search pattern is typed and does not wait until `<CR>` is pressed.
+If `<Esc>` is pressed during incremental search, the cursor returns to
+the starting position. Autocompletion of search patterns can be triggerd
+with `<C-r><C-w>`. The count of matches of the current pattern is
+displayed with the following trick: `:%s///gn`.
 
 ## Patterns
 
