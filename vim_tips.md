@@ -333,6 +333,10 @@ the starting position. Autocompletion of search patterns can be triggerd
 with `<C-r><C-w>`. The count of matches of the current pattern is
 displayed with the following trick: `:%s///gn`.
 
+After a search the cursor is positioned at the first character of the
+match. The cursor can also be placed at the end of the match with the
+following search: `/{pattern}/e<CR>` or with the last pattern `//e<CR>`.
+
 ## Patterns
 
 Patterns in Vim can be used to accomplish different tasks, like
