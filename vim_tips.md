@@ -337,6 +337,11 @@ After a search the cursor is positioned at the first character of the
 match. The cursor can also be placed at the end of the match with the
 following search: `/{pattern}/e<CR>` or with the last pattern `//e<CR>`.
 
+Commands can operate on the whole match by using `//e`. So for example
+for changing all characters of a match to uppercase this command could
+be used `gU//e<CR>`. To repeat this action with the dot commad, the next
+match must be addressed with `//<CR>` and not with `n`.
+
 ## Patterns
 
 Patterns in Vim can be used to accomplish different tasks, like
