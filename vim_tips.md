@@ -342,6 +342,13 @@ for changing all characters of a match to uppercase this command could
 be used `gU//e<CR>`. To repeat this action with the dot commad, the next
 match must be addressed with `//<CR>` and not with `n`.
 
+If a search pattern needs to be refined it can be reused by typing
+`/<Up>`. For elaborated tweaks the Command-Line Window prepopulated with
+the search history is useful, which is started with `q/` or `<C-f>` from
+Command mode. After the changes are made, any command can be executed
+with `<CR>`. The Command-Line Window prepopulated with the last executed
+commands is opened with `q:`.
+
 ## Patterns
 
 Patterns in Vim can be used to accomplish different tasks, like
