@@ -428,3 +428,32 @@ delimiters: `/\v"\zs[^"]+\ze"`.
 | `\zs`        | Start of the match (also zero width)         |
 | `\ze`        | End of the match (also zero width)           |
 
+## Substitution
+
+Vim supports powerful substituions with following ex command:
+
+`:[range]s[ubstitute]/{pattern}/{string}/[flags]`
+
+The flags are explained in the table below:
+
+| Flag | Meaning                                                                         |
+| ---- | -------                                                                         |
+| `g`  | Globally applies substitition, which means not just the first in each line      |
+| `c`  | Substitutions must be confirmed or rejected                                     |
+| `n`  | Suppresses the substitution behaviour and counts the occurrences of the pattern |
+| `i`  | Ignore case for the pattern regardless of the overall settings                  |
+| `I`  | Don't ignore case for the pattern regardless of the overall settings            |
+| `&`  | Reuses flags from last substitution                                             |
+
+Special characters for the replacement string:
+
+| Symbol          | Description                                                   |
+| ------          | -----------                                                   |
+| `\r`            | Insert a carriage return                                      |
+| `\t`            | Insert a tab character                                        |
+| `\\`            | Insert a backslash character                                  |
+| `\{1-9}`        | Insert the first to nineth submatch                           |
+| `\0` or `&`     | Insert the entire matched pattern                             |
+| `~`             | Use {string} from the previous substitution command execution |
+| `\={Vim script} | Evaluate {Vim script} expression and use it as {string}       |
+
