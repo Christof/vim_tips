@@ -445,6 +445,18 @@ The flags are explained in the table below:
 | `I`  | Don't ignore case for the pattern regardless of the overall settings            |
 | `&`  | Reuses flags from last substitution                                             |
 
+When searching with the `c` flag the following options are available:
+
+| Option  | Meaning                                              |
+| ------  | -------                                              |
+| `y`     | Substitute this match                                |
+| `n`     | Skip this match                                      |
+| `q`     | Quit substituting                                    |
+| `l`     | "last"; Substitute this match, then quit             |
+| `a`     | "all"; Substitute this and and any remaining matches |
+| `<C-e>` | Scroll the screen up                                 |
+| `<C-y>` | Scroll the screen down                               |
+
 Special characters for the replacement string:
 
 | Symbol          | Description                                                   |
@@ -457,3 +469,10 @@ Special characters for the replacement string:
 | `~`             | Use {string} from the previous substitution command execution |
 | `\={Vim script} | Evaluate {Vim script} expression and use it as {string}       |
 
+The last search pattern can be used by leaving the `{pattern}` empty.
+This allows for decoupling of searching and replacing, so that on a
+first attempt with a wrong pattern, the substitution isn't performed on
+wrong matches. A drawback of this method is that the two steps go into
+two different histories and cannot be reused easily. To get a good
+history even with a separate search can be achieved by pasting the last
+search into the command line with `<C-r>/`.
