@@ -476,3 +476,8 @@ wrong matches. A drawback of this method is that the two steps go into
 two different histories and cannot be reused easily. To get a good
 history even with a separate search can be achieved by pasting the last
 search into the command line with `<C-r>/`.
+
+It is also possible to use the content of registers as `{pattern}` or
+`{string}` by using `<C-r>{register}` or by typing `\=@{register}`. The
+latter is passing by reference which can take care of line breaks and
+special characters. After the `\=` every Vim script is evaluated.
