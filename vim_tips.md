@@ -148,17 +148,17 @@ shows the jump list. Jumps are generally larger as single character
 or word motions and can move between files. Some jump commands
 are listed below:
 
-| Command                  | Jumps to                                        |
-| -------                  | ------                                          |
-| `[line]G`                | specified line                                  |
-| /{pattern}               | pattern                                         |
-| `%`                      | matching parenthesis                            |
-| `(`/`)`                  | start of previous/next sentence                 |
-| `{`/`}`                  | start of previous/next paragraph                |
-| `H`/`M`/`L`              | start of top/middle/bottom of screen            |
-| `gf`                     | file name under the cursor (suffixesadd option) |
-| `<C-]>` _re_`<C-j>`      | definition of keyword und der cursor            |
-| `` `{mark}`` _re_`<C-m>` | a mark                                          |
+| Command                       | Jumps to                                        |
+| -------                       | ------                                          |
+| `[line]G`                     | specified line                                  |
+| /{pattern}                    | pattern                                         |
+| `%`                           | matching parenthesis                            |
+| `(`/`)`                       | start of previous/next sentence                 |
+| `{`/`}`                       | start of previous/next paragraph                |
+| `H`/`M`/`L`                   | start of top/middle/bottom of screen            |
+| `gf`                          | file name under the cursor (suffixesadd option) |
+| `<C-]>` _re_`<Leader>g`       | definition of keyword und der cursor            |
+| `` `{mark}`` _re_ `<Leader>m` | a mark                                          |
 
 Vim maintains multiple jump lists. Each is scoped to a window.
 
