@@ -481,3 +481,9 @@ It is also possible to use the content of registers as `{pattern}` or
 `{string}` by using `<C-r>{register}` or by typing `\=@{register}`. The
 latter is passing by reference which can take care of line breaks and
 special characters. After the `\=` every Vim script is evaluated.
+
+The last substitution can be repeated on the whole file by pressing `g&`
+which is equivalent to `:%s//~/&`. `:&` (or `&` in Normal mode) repeats
+the last substitution command. If another ampersand is added (`:&&`) the
+last flags also are reused.
+__re__: `:&&` is mapped to `&` in Normal and Visual mode.
