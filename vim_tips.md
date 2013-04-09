@@ -243,6 +243,10 @@ jVG                  // go to next line and select until the end
 `<C-a>` adds `[count]` to the number at or after the cursor, `<C-x>`
 subtracts. If no number is given the default is 1.
 
+#### Help
+`:h[elp] {topic}` is the built in help system. `:h index` for example shows
+all key mappings.
+
 ## Insert mode
 
 | Shortcut               | Description                              |
