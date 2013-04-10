@@ -491,3 +491,7 @@ which is equivalent to `:%s//~/&`. `:&` (or `&` in Normal mode) repeats
 the last substitution command. If another ampersand is added (`:&&`) the
 last flags also are reused.
 __re__: `:&&` is mapped to `&` in Normal and Visual mode.
+
+Submatches can be accessed in Vim script with the `submatch({0-9})`
+function. For example to increment each html heading this feature could
+be used like: `/\v/\<\/?h\zs\d/\=submatch(0)+1/g`.
