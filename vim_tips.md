@@ -495,3 +495,16 @@ __re__: `:&&` is mapped to `&` in Normal and Visual mode.
 Submatches can be accessed in Vim script with the `submatch({0-9})`
 function. For example to increment each html heading this feature could
 be used like: `/\v/\<\/?h\zs\d/\=submatch(0)+1/g`.
+
+To swap two words (a and b in the example) the substitution command can
+be used with a little help of a dictionary in Vim script:
+
+```
+/\v(<a>|<b>) // searches for both words
+// uses lookup dictionary to find right replacement
+:%s//\={"b":a,"a":b}[submatch(1)]/g 
+
+```
+
+An alternative is the Abolish.vim plugin which reduces the same task to
+`:%S/{a,b}/{b,a}/g`.
