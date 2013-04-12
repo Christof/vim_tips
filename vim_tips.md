@@ -448,6 +448,7 @@ The flags are explained in the table below:
 | `i`  | Ignore case for the pattern regardless of the overall settings                  |
 | `I`  | Don't ignore case for the pattern regardless of the overall settings            |
 | `&`  | Reuses flags from last substitution                                             |
+| `e`  | Suppress error messages                                                         |
 
 When searching with the `c` flag the following options are available:
 
@@ -508,3 +509,26 @@ be used with a little help of a dictionary in Vim script:
 
 An alternative is the Abolish.vim plugin which reduces the same task to
 `:%S/{a,b}/{b,a}/g`.
+
+Substitution in multiple files can be achieved with the standard
+commands like in the following example:
+
+```
+/Searching     // define the search pattern
+:args **/*.txt // use the argument list to collect all files
+:set hidden    // so that the files can be edited without saving
+:argdo %s//replacement/ge
+```
+
+An alternative is to use the Quickfix List, `:vimgrep` and the qargs
+plugin or a Vim script.
+
+```
+:vimgrep /Searching **/*.txt // search for the pattern
+:Qargs                       // load Quickfix list fies as arguments
+:argdo %s//replacement/ge  
+:argdo update                // to save the files
+```
+
+The last three commands could be executed using the bar operator like:
+`Qargs | argdo %s/replacement/ge | update`.
