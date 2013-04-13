@@ -319,6 +319,31 @@ Select mode differs from Visual mode in that the selected text can be
 replaced by starting to type. Switching between Visual and Select modes
 can be achieved with `<C-g>`.
 
+## Command-Line mode
+
+This mode stems from the 'ancestors' of vim: the line editors ex and ed.
+Command-Line mode is started by typing `:` in Normal mode. Afterwards an
+Ex command can be entered and executed with `<CR>`. This returns us to
+Normal mode. Another way to exit Command-Line mode is to use `<Esc>`.
+The basic structure of an Ex Command is: `:[range]{command}
+[arguments]`. Since ex was a line editor many line based tasks can be
+achieved with Ex commands (the optional range is omitted):
+
+| Command                   | Explanation                                                   |
+| -------                   | -----------                                                   |
+| `:delete [x]`             | Delete specified lines [into register x]                      |
+| `:yank [x]`               | Yank specified lines [into register x]                        |
+| `:[line]put [x]`          | Put the text form register x after the specified line         |
+| `:copy {address}`         | Copy specified lines to below the line specified by {address} |
+| `:move {address}`         | Move specified lines to below the line specified by {address} |
+| `:join`                   | Join the specified lines                                      |
+| `:substitute ...`         | see [Substitution](#Substitution)                             |
+| `:substitute ...`         | see [Substitution](#Substitution)                             |
+| `:global/{pattern}/[cmd]` | Execute Ex [cmd] on all specified lines matching {pattern}    |
+
+Insert mode commands like `<C-w>`, `<C-u>` and `<C-r>{register}` work
+also in Command-Line mode.
+
 ## Search
 
 A search can be initiated in Normal mode with either `/` for forward
@@ -432,6 +457,7 @@ delimiters: `/\v"\zs[^"]+\ze"`.
 | `\zs`        | Start of the match (also zero width)         |
 | `\ze`        | End of the match (also zero width)           |
 
+<a id="Substitution"></a>
 ## Substitution
 
 Vim supports powerful substituions with following ex command:
