@@ -565,8 +565,9 @@ commands like in the following example:
 :argdo %s//replacement/ge
 ```
 
-An alternative is to use the Quickfix List, `:vimgrep` and the qargs
-plugin or a Vim script.
+An alternative is to use the Quickfix List (`copen`), `:vimgrep` and the
+qargs plugin or a Vim script (part of
+[dotjanus](https://github.com/Christof/dotjanus)).
 
 ```
 :vimgrep /Searching **/*.txt // search for the pattern
