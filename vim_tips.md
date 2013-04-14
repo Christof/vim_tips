@@ -341,6 +341,25 @@ achieved with Ex commands (the optional range is omitted):
 | `:substitute ...`         | see [Substitution](#Substitution)                             |
 | `:global/{pattern}/[cmd]` | Execute Ex [cmd] on all specified lines matching {pattern}    |
 
+If the range is not given, the current line is used. The range can be
+specified with the following symbols:
+
+| Symbol        | Meaning                                         |
+| ------        | -------                                         |
+| `{number}`    | Addresses the line number of the file           |
+| `$`           | Addresses the last line of the file             |
+| `0`           | Addresses the virtual line above the first line |
+| `.`           | Addresses the line where the cursor is placed   |
+| `'m`          | Addresses the line containing the mark m        |
+| `'<`          | Addresses the start of the visual selection     |
+| `'>`          | Addresses the end of the visual selection       |
+| `%`           | Addresses the entire file                       |
+| `/{pattern}/` | Addresses the line which matches the pattern    |
+
+A range can be specified by combining two symbols separated by a comma,
+e.g. `1,$` also addresses the entire file. Each address can be offset in
+both directions: `:{address}+n` or `:{address}-n`
+
 Insert mode commands like `<C-w>`, `<C-u>` and `<C-r>{register}` work
 also in Command-Line mode.
 
