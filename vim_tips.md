@@ -329,17 +329,17 @@ The basic structure of an Ex Command is: `:[range]{command}
 [arguments]`. Since ex was a line editor many line based tasks can be
 achieved with Ex commands (the optional range is omitted):
 
-| Command                   | Explanation                                                   |
-| -------                   | -----------                                                   |
-| `:delete [x]`             | Delete specified lines [into register x]                      |
-| `:yank [x]`               | Yank specified lines [into register x]                        |
-| `:[line]put [x]`          | Put the text form register x after the specified line         |
-| `:copy {address}`         | Copy specified lines to below the line specified by {address} |
-| `:move {address}`         | Move specified lines to below the line specified by {address} |
-| `:join`                   | Join the specified lines                                      |
-| `:substitute ...`         | see [Substitution](#Substitution)                             |
-| `:substitute ...`         | see [Substitution](#Substitution)                             |
-| `:global/{pattern}/[cmd]` | Execute Ex [cmd] on all specified lines matching {pattern}    |
+| Command                         | Explanation                                                   |
+| -------                         | -----------                                                   |
+| `:delete [x]`                   | Delete specified lines [into register x]                      |
+| `:yank [x]`                     | Yank specified lines [into register x]                        |
+| `:[line]put [x]`                | Put the text form register x after the specified line         |
+| `:copy {address}` or `:t {...}` | Copy specified lines to below the line specified by {address} |
+| `:m[ove] {address}`             | Move specified lines to below the line specified by {address} |
+| `:join`                         | Join the specified lines                                      |
+| `:normal {commands}`            | Execute Normal mode {commands} on each specified line         |
+| `:s[ubstitute] ...`             | see [Substitution](#Substitution)                             |
+| `:global/{pattern}/[cmd]`       | Execute Ex [cmd] on all specified lines matching {pattern}    |
 
 If the range is not given, the current line is used. The range can be
 specified with the following symbols:
@@ -362,6 +362,13 @@ both directions: `:{address}+n` or `:{address}-n`
 
 Insert mode commands like `<C-w>`, `<C-u>` and `<C-r>{register}` work
 also in Command-Line mode.
+
+The last Ex command is repeated with `@:`, because the : register
+contains the last executed command. After once repeating the command
+with `@:`, the command can be repeated with `@@`.
+
+Typing of commands can be shortened by using autocompletion with
+`<Tab>`.
 
 ## Search
 
