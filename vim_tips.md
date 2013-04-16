@@ -368,7 +368,22 @@ contains the last executed command. After once repeating the command
 with `@:`, the command can be repeated with `@@`.
 
 Typing of commands can be shortened by using autocompletion with
-`<Tab>`.
+`<Tab>`. The history of executed Ex commands can be traversed with
+`<Up>` and `<Down>` __re__ `<C-p>` and `<C-n>`.
+
+### Interaction with the shell
+
+Vim can call shell commands and ouputs from the shell commands can be
+inserted as text.
+
+| Command                | Description                                                    |
+| -------                | -----------                                                    |
+| `:shell`               | Starts a shell (return to Vim by typing exit)                  |
+| `:!{cmd}`              | Execute {cmd} with the shell (return with enter)               |
+| `:read !{cmd}`         | Execute {cmd} and insert its standard ouput below the cursor   |
+| `:[range]write !{cmd}` | Execute {cmd} with [range] lines as standard input             |
+| `:[range]!{filter}`    | Filter the specified [range] through external program {filter} |
+| `!{motion}`            | Start Command-line mode prepopulated with corresponding range  |
 
 ## Search
 
