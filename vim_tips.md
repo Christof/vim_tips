@@ -385,6 +385,16 @@ inserted as text.
 | `:[range]!{filter}`    | Filter the specified [range] through external program {filter} |
 | `!{motion}`            | Start Command-line mode prepopulated with corresponding range  |
 
+## Files
+
+The `:ls` command shows all loaded buffers in the Buffer list. `%`
+indicates the visible buffer and `#` shows the alternate buffer. We can
+quickly switch between these two buffers by pressing `<C-^>`. `:bprev`,
+`:bnext`, `:bfirst` and `:blast` move you through the list. `:buffer
+{number|name}` jumps directly to a buffer. `:bdelete {number1 number2
+...}` or `:startNumber,endNumber bdelete` delete the corresponding
+buffers.
+
 ## Search
 
 A search can be initiated in Normal mode with either `/` for forward
