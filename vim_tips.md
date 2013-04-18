@@ -393,7 +393,17 @@ quickly switch between these two buffers by pressing `<C-^>`. `:bprev`,
 `:bnext`, `:bfirst` and `:blast` move you through the list. `:buffer
 {number|name}` jumps directly to a buffer. `:bdelete {number1 number2
 ...}` or `:startNumber,endNumber bdelete` delete the corresponding
-buffers.
+buffers. A modified file is indicated with `+`. A command which would
+switch the buffer raises an error if the current buffer is modified.
+Such a command can be executed without an error by using the `!` as
+postfix, like `:bnext!`. Now the modified files is marked with the
+letter `h` for hidden. The current buffer is marked with an `a` for
+active. If the `hidden` option is set, the `!` versions of the commands
+are not necessary. This is also useful for working with the argument
+list (`:argdo`). When vim is closed with `:q`, it loads the first hidden
+file, which can be saved with `:w` or discarded with `:e!`. `:qa[ll]`
+closes all windows, discarding changes without warning. `:wa[ll]` writes
+all modified buffers to disk.
 
 ## Search
 
