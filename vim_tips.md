@@ -405,6 +405,43 @@ file, which can be saved with `:w` or discarded with `:e!`. `:qa[ll]`
 closes all windows, discarding changes without warning. `:wa[ll]` writes
 all modified buffers to disk.
 
+## Split Windows
+
+The active window can be subdivided with following commands:
+
+| Command            | Description                                                               |
+| -------            | -----------                                                               |
+| `<C-w>s`           | Split the current window horizontally                                     |
+| `:sp[lit] {file}`  | Split the current window horizontally, loading {file} into the new window |
+| `<C-w>v`           | Split the current window vertically                                       |
+| `:vsp[lit] {file}` | Split the current window vertically, loading {file} into the new window   |
+| `<C-w>o`           | Keep only the active window                                               |
+| `:on[ly]`          | Keep only the active window                                               |
+| `<C-w>c`           | Close the active window                                                   |
+| `:cl[ose]`         | Close the active window                                                   |
+
+Navigation between the windows is achieved with:
+
+| Command  | Description                   |
+| -------  | -----------                   |
+| `<C-w>w` | Cycles to the next window     |
+| `<C-w>h` | Focus the window to the left  |
+| `<C-w>j` | Focus the window below        |
+| `<C-w>k` | Focus the window above        |
+| `<C-w>l` | Focus the window to the right |
+
+The size of the windows is changed with the following keystrokes:
+
+| Command       | Description                              |
+| -------       | -----------                              |
+| `<C-w>=`      | Equalize width and height of all windows |
+| `<C-w>_`      | Maximize height of the active window     |
+| `<C-w>bar`    | Maximize width of the active window      |
+| `[N]<C-w>_`   | Set active window height to [N] rows     |
+| `[N]<C-w>bar` | Set active window width to [N] columns   |
+
+`bar` stands for `|`.
+
 ## Search
 
 A search can be initiated in Normal mode with either `/` for forward
