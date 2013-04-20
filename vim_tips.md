@@ -442,6 +442,26 @@ The size of the windows is changed with the following keystrokes:
 
 `bar` stands for `|`.
 
+## Tabs
+
+Vim also supports tabs to manage multiple files. The following commands
+are available:
+
+| Ex Command              | Normal Command      | Descriptions                                               |
+| ----------              | --------------      | ------------                                               |
+| `:tabnew {filename}`    | __re__ `<C-t>`      | Open {filename} in a new tab or an empty new tab           |
+| `:tabe[dit] {filename}` |                     | Open {filename} in a new tab                               |
+|                         | `<C-w>T`            | Move the current window into its own tab                   |
+| `:tabc[lose]`           |                     | Close the current tab and all of its windows               |
+| `:tabo[nly]`            |                     | Keppe the active tab page, closing all others              |
+| `:tab[ext] {number}`    |                     | Switch to tab page {number}                                |
+| `:tab[ext]`             | `gt` __re__ `<S-k>` | Switch to next tab page (right)                            |
+| `:tap[revious]`         | `gT` __re__ `<S-j>` | Switch to previous tab page (left)                         |
+| `:tapmove {number}`     |                     | Move current tab page to {number}, or end if it is omitted |
+
+`:tabd[o]` is like `:argdo` but executes the given command in the
+current window of each tab.
+
 ## Search
 
 A search can be initiated in Normal mode with either `/` for forward
