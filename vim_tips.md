@@ -387,6 +387,11 @@ inserted as text.
 
 ## Files
 
+The `:edit {filepath}` command opens a file for editing. It accepts
+absolute and relative paths. Tab completion also works for the paths.
+The `%` symbol expands to the filepath of the active buffer, `%:h`
+__re__ `%%` expands only to the path of the active buffer.
+
 The `:ls` command shows all loaded buffers in the Buffer list. `%`
 indicates the visible buffer and `#` shows the alternate buffer. We can
 quickly switch between these two buffers by pressing `<C-^>`. `:bprev`,
