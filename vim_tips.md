@@ -392,6 +392,12 @@ absolute and relative paths. Tab completion also works for the paths.
 The `%` symbol expands to the filepath of the active buffer, `%:h`
 __re__ `%%` expands only to the path of the active buffer.
 
+Another method to open files is to used the `:find` command. It searches
+for the passed filename in the `path`. The path can be set like 
+`:set path+=app/**` (something like this is done automatically by
+rails.vim). A `<Tab>` expands the path of the found file and cycles
+through the matches.
+
 The `:ls` command shows all loaded buffers in the Buffer list. `%`
 indicates the visible buffer and `#` shows the alternate buffer. We can
 quickly switch between these two buffers by pressing `<C-^>`. `:bprev`
