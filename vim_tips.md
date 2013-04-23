@@ -416,6 +416,16 @@ it loads the first hidden file, which can be saved with `:w` or
 discarded with `:e!`. `:qa[ll]` closes all windows, discarding changes
 without warning. `:wa[ll]` writes all modified buffers to disk.
 
+If vim is started by passing a directory as argument, it starts netrw,
+its file explorer. Netrw is also started when passing a directory to
+`:edit`. The NERDTree plugin can be used as replacement and is also
+started automatically.
+
+A file which is only editable by a super user, can normally not be saved
+by vim, when vim is not started by a super user. Using the following
+command this can be circumvented: `:w !sudo tee % > /dev/null` __re__
+`:wsu`.
+
 ## Split Windows
 
 The active window can be subdivided with following commands:
