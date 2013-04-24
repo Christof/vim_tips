@@ -87,6 +87,29 @@ Some more special registers:
 | `<`     | Shift left     |
 
 ### Motions
+#### Basic motion commands
+| Command     | Motion                                     |
+| -------     | ------                                     |
+| `j`         | Down one real line                         |
+| `gj`        | Down one display line                      |
+| `g{motion}` | Motion on display lines                    |
+| `k`         | Up one real line                           |
+| `h`         | One character left                         |
+| `l`         | One character right                        |
+| `0`         | First character of line                    |
+| `^`         | First nonblank character of line           |
+| `$`         | End of line                                |
+| `w`         | Forward to start of next word              |
+| `b`         | Backward to start of current/previous word |
+| `e`         | Forward to end of current/next word        |
+| `ge`        | Backward to end of previous word           |
+
+`w`, `b`, `e` and `ge` use the defintion of a word as a sequence of
+letters, digits and undscores or as a sequence of other nonblank
+characters separated with whitspace. These commands have an uppercase
+equivalent (`W`, `B`, `E`, `gE`) which uses the WORD definition. A WORD
+is a sequence of nonblank characters separated with whitespace.
+
 #### Search
 The search command is exclusive so you can use it in `d{motion}`
 commands and search for the first word which should not be deleted:
