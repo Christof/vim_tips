@@ -111,6 +111,18 @@ equivalent (`W`, `B`, `E`, `gE`) which uses the WORD definition. A WORD
 is a sequence of nonblank characters separated with whitespace.
 
 #### Search
+Vim has character search commands, which are handy to navigate within a
+line, because they move to the next occurrence of the specified
+character:
+| Command        | Description                                           |
+| -------        | -----------                                           |
+| `f{character}` | Forward to the next occurrence                        |
+| `F{character}` | Backward to the next occurrence                       |
+| `t{character}` | Forward to the character before the next occurrence   |
+| `T{character}` | Backward to the character before the next occurrence  |
+| `;`            | Repeat the last character search                      |
+| `,`            | Repeat the last character search in reverse direction |
+
 The search command is exclusive so you can use it in `d{motion}`
 commands and search for the first word which should not be deleted:
 
