@@ -374,7 +374,7 @@ achieved with Ex commands (the optional range is omitted):
 | `:join`                         | Join the specified lines                                      |
 | `:normal {commands}`            | Execute Normal mode {commands} on each specified line         |
 | `:s[ubstitute] ...`             | see [Substitution](#Substitution)                             |
-| `:global/{pattern}/[cmd]`       | Execute Ex [cmd] on all specified lines matching {pattern}    |
+| `:global /{pattern}/[cmd]`      | Execute Ex [cmd] on all specified lines matching {pattern}    |
 
 If the range is not given, the current line is used. The range can be
 specified with the following symbols:
@@ -405,6 +405,16 @@ with `@:`, the command can be repeated with `@@`.
 Typing of commands can be shortened by using autocompletion with
 `<Tab>`. The history of executed Ex commands can be traversed with
 `<Up>` and `<Down>` __re__ `<C-p>` and `<C-n>`.
+
+### Global commands
+
+As shown in the overview table, the global command has the following
+form: `:[range] global[!] /{pattern}/ [cmd]`. In contrast to most other
+Ex commands, the default range is the entire file (`%`) and not the
+current line (`.`). The pattern is part of the search history and can be
+left black for using the last search pattern. If the command is not
+specified, vim uses `:print` as default. The command can be executed by
+all lines not matching the pattern when `:global!` or `vglobal` is used.
 
 ### Interaction with the shell
 
