@@ -416,6 +416,15 @@ left black for using the last search pattern. If the command is not
 specified, vim uses `:print` as default. The command can be executed by
 all lines not matching the pattern when `:global!` or `vglobal` is used.
 
+For example to delete everything but the content of html tags,
+one could use the following command: `:g/\v\<\/?\w+>/d`. Another example
+is to collect all TODO items in a register. First all TODO items in a
+file could be displayed with: `:g/TODO`. Before using the register "a,
+it is cleared with `qaq`. Now the TODO itmes can be added to the
+register: `:g/TODO/yank A` and afterwards displayed using `:reg a`. This
+approach scales well in combination with `:argdo` and `:bufdo` for
+multiple files.
+
 ### Interaction with the shell
 
 Vim can call shell commands and ouputs from the shell commands can be
