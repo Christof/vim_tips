@@ -423,7 +423,14 @@ file could be displayed with: `:g/TODO`. Before using the register "a,
 it is cleared with `qaq`. Now the TODO itmes can be added to the
 register: `:g/TODO/yank A` and afterwards displayed using `:reg a`. This
 approach scales well in combination with `:argdo` and `:bufdo` for
-multiple files.
+multiple files. A complex example is to sort the properties of each rule
+in a CSS file. The command which can achieve this is: `:g/{/ .+1,/}/-1
+sort`. The first part searches for the line where a rule starts (e.g.
+'body {'). The range for the sort command is generated relative to each
+line found by `:g/{/`, which can be addressed with `.`. It starts one
+line below the start of the rule and goes until the line before the
+closing of the rule '}'. The `:>` command can be used before using sort
+to see how many lines are selected for each global match.
 
 ### Interaction with the shell
 
