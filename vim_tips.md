@@ -759,3 +759,25 @@ qargs plugin or a Vim script (part of
 
 The last three commands could be executed using the bar operator like:
 `Qargs | argdo %s/replacement/ge | update`.
+
+## Tools
+### ctags
+
+To use ctags it must be installed on the system. It is called
+exuberant-ctags on linux. If the program is installed the tags can be
+created with `:!ctags -R --exclude=.git --languages=-sql`. This command
+creates tags recursively from the current working directory including
+the git folder and sql files. Vim can execute the command automatically
+every time after a file is saved: `:autocmd BufWritePost * call
+system("ctags -R")`. The tags are stored in a plain text file which is
+called tags. Keywords are addressed with a search command. This ensures
+that little changes don't require updating of the tags.
+Placing the cursor on a word and pressing `<C-]>` __re__ `<Leader>g`
+moves to the definition of the word under the cursor. Vim maintains a
+history of all jumps. The `<C-t>` shortcuts goes back in the history. If
+a keyword has multiple matches the one with the highest priority (for
+example a match in the same file) is used. `g<C-]>` behaves like `<C-]`
+except that it show a list of multiple matches instead of moving to the one
+with the highest priority. The `:tselect` command can be used to select
+another match. `:tnext`, `:tprev`, `:tfirst` and `:tlast` can also be
+used to move between matches.
