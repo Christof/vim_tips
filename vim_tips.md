@@ -774,10 +774,14 @@ called tags. Keywords are addressed with a search command. This ensures
 that little changes don't require updating of the tags.
 Placing the cursor on a word and pressing `<C-]>` __re__ `<Leader>g`
 moves to the definition of the word under the cursor. Vim maintains a
-history of all jumps. The `<C-t>` shortcuts goes back in the history. If
+history of all jumps. The `<C-t>` shortcut or `:pop` go back in the history. If
 a keyword has multiple matches the one with the highest priority (for
 example a match in the same file) is used. `g<C-]>` behaves like `<C-]`
 except that it show a list of multiple matches instead of moving to the one
 with the highest priority. The `:tselect` command can be used to select
 another match. `:tnext`, `:tprev`, `:tfirst` and `:tlast` can also be
-used to move between matches.
+used to move between matches. The Ex commands `:tag {keyword}` and
+`:tjump {keyword}` are the same as `<C-]>` and `g<C-]>`, respectively.
+These two commands commands support tab completion as well as searching
+which is achieved by replacing `{keyword}` with `/{pattern}`.
+
