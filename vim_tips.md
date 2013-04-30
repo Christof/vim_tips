@@ -785,3 +785,9 @@ used to move between matches. The Ex commands `:tag {keyword}` and
 These two commands commands support tab completion as well as searching
 which is achieved by replacing `{keyword}` with `/{pattern}`.
 
+### Quickfix List
+
+Source code can be compiled within Vim by issueing the `:make` command.
+Vim records all warnings and errors in the quickfix list and jumps to
+the first item in the list. If one wants to stay at the current location
+the `:make!` should be used instead.
