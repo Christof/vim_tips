@@ -790,4 +790,27 @@ which is achieved by replacing `{keyword}` with `/{pattern}`.
 Source code can be compiled within Vim by issueing the `:make` command.
 Vim records all warnings and errors in the quickfix list and jumps to
 the first item in the list. If one wants to stay at the current location
-the `:make!` should be used instead.
+the `:make!` should be used instead. The following list of command moves
+through the quickfix list (and through the location list if the prefix
+`c` is replaced with an `l`):
+
+| Command   | Action                             |
+| -------   | ------                             |
+| `:cnext`  | Jump to next item                  |
+| `:cprev`  | Jump to previous item              |
+| `:cfirst` | Jump to first item                 |
+| `:clast`  | Jump to last item                  |
+| `:cnfile` | Jump to first item in next file    |
+| `:cpfile` | Jump to last item in previous file |
+| `:cc N`   | Jump to nth item                   |
+| `:copen`  | Jump the quickfix window           |
+| `:cclose` | Close the quickfix window          |
+
+#### Location list
+
+For every command which populates the quickfix list (`:make`, `:grep`
+and `:vimgrep`) there is a corresponding command with the prefix `l`
+(`:lmake`, `:lgrep` and `:lvimgrep`) which populates the location list.
+The difference between the two lists is that there can only exist one
+quickfix list but many location lists. The location list is bound to the
+active window.
