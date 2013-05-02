@@ -823,3 +823,14 @@ and `:vimgrep`) there is a corresponding command with the prefix `l`
 The difference between the two lists is that there can only exist one
 quickfix list but many location lists. The location list is bound to the
 active window.
+
+#### Customizing make
+
+Vim can execute other 'compilers' instead of make. For example for
+javascript one could execute
+[nodelint](https://github.com/tav/nodelint). The program which is
+called when `:make` is invoked can be set with `makeprg` option. For
+nodelint this would be `:setlocal makeprg=NODE_DISABLE_COLORS=1\
+nodelint\ %`. The output can be parsed to populate the quickfix list.
+The option `errorformat` defines how the output is parsed. The
+`:compiler {name}` configures a compiler.
