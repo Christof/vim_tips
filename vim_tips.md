@@ -794,17 +794,26 @@ the `:make!` should be used instead. The following list of command moves
 through the quickfix list (and through the location list if the prefix
 `c` is replaced with an `l`):
 
-| Command   | Action                             |
-| -------   | ------                             |
-| `:cnext`  | Jump to next item                  |
-| `:cprev`  | Jump to previous item              |
-| `:cfirst` | Jump to first item                 |
-| `:clast`  | Jump to last item                  |
-| `:cnfile` | Jump to first item in next file    |
-| `:cpfile` | Jump to last item in previous file |
-| `:cc N`   | Jump to nth item                   |
-| `:copen`  | Jump the quickfix window           |
-| `:cclose` | Close the quickfix window          |
+| Command   | Action                                                         |
+| -------   | ------                                                         |
+| `:cnext`  | Jump to next item                                              |
+| `:cprev`  | Jump to previous item                                          |
+| `:cfirst` | Jump to first item                                             |
+| `:clast`  | Jump to last item                                              |
+| `:cnfile` | Jump to first item in next file                                |
+| `:cpfile` | Jump to last item in previous file                             |
+| `:cc N`   | Jump to nth item                                               |
+| `:copen`  | Jump the quickfix window                                       |
+| `:cclose` | Close the quickfix window (even when other window is active)   |
+| `:colder` | Older version of quickfix list (can be prefixed with a number) |
+| `:cnewer` | Newer version of quickfix list (can be prefixed with a number) |
+
+`:cnext` and `:cprev` can be prefixed by a number to skip entries. The
+quickfix list can be traversed like any other text with `j` and `k` as
+well as with search commands. Pressing `<CR>` on an entry opens the
+corresponding location in the window above. Vim stores old quifix lists.
+The history can be accessed with `:colder` and `:cnewer`. This enables
+reusing of results of `:make` and `:grep`.
 
 #### Location list
 
