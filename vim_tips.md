@@ -834,3 +834,11 @@ nodelint this would be `:setlocal makeprg=NODE_DISABLE_COLORS=1\
 nodelint\ %`. The output can be parsed to populate the quickfix list.
 The option `errorformat` defines how the output is parsed. The
 `:compiler {name}` configures a compiler.
+
+### Project-wide search
+
+`:grep` is a wrapper around grep (or any program like grep, e.g. ack) to
+stay in vim when searching multiple files. The results are placed in the
+quickfix list. For example searching for a word ignoring the casing can
+be achieved with `:grep -i search_word *`. The asterix denotes the file
+types which should be considered.
