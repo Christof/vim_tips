@@ -841,4 +841,12 @@ The option `errorformat` defines how the output is parsed. The
 stay in vim when searching multiple files. The results are placed in the
 quickfix list. For example searching for a word ignoring the casing can
 be achieved with `:grep -i search_word *`. The asterix denotes the file
-types which should be considered.
+types which should be considered. As with make the executed program can
+be change. The options used to configure the behaviour are `greprg` and
+`grepformat`. As another alternative Vim provides the `:vimgrep` command
+which uses the internal search engine: `:vrim[grep][!] /{pattern}/[g][j]
+{file(s)}`. The `j` option prevents vim from jumping to the first match.
+For the file(s) a wildcard can be used. `**` stands for any file in the
+directory or in subdirectories. `##` exapnds to the files in the
+argument list. Leaving the search field empty to use the last search
+like for `:substitute` and `:global` is not supported.
