@@ -850,3 +850,24 @@ For the file(s) a wildcard can be used. `**` stands for any file in the
 directory or in subdirectories. `##` exapnds to the files in the
 argument list. Leaving the search field empty to use the last search
 like for `:substitute` and `:global` is not supported.
+
+### Autocompletion
+
+Autocompletion can be triggered in insert mode with `<C-n>` and `<C-p>`
+which move through the list of suggested items (next and previous). Case
+sensitivity follows the setting of the search command. The `infercase`
+option can be set, so that the casing is infered from the typed
+characters. Vim supports multiple completion types:
+
+| Command      | Type of completion      |
+| -------      | ------------------      |
+| `<C-n>`      | Generic keywords        |
+| `<C-x><C-n>` | Current buffer keywords |
+| `<C-x><C-i>` | Included file keywords  |
+| `<C-x><C-]>` | Tags file keywords      |
+| `<C-x><C-k>` | Dictionary lookup       |
+| `<C-x><C-l>` | Whole line completion   |
+| `<C-x><C-f>` | Filename completion     |
+| `<C-x><C-o>` | Omni-completion         |
+
+
