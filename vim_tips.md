@@ -870,4 +870,21 @@ characters. Vim supports multiple completion types:
 | `<C-x><C-f>` | Filename completion     |
 | `<C-x><C-o>` | Omni-completion         |
 
+Independent from the type of completion the list of suggestions can be
+used with the following commands:
+
+| Command         | Description                                  |
+| -------         | -----------                                  |
+| `<C-n>`         | Use next item                                |
+| `<C-p>`         | Use previous item                            |
+| `<Down>`        | Select next item                             |
+| `<Up>`          | Select previous item                         |
+| `<C-y>`, `<CR>` | Accept currently selected item (yes)         |
+| `<C-e>`         | Revert to originally typed text (exit popup) |
+| `<BS>`, `<C-h>` | Delete on character from the match           |
+| `<C-l>`         | Add on character from current match          |
+| `{char}`        | Stop completion and insert {char}            |
+
+Using `<C-n><C-p>` opens the autocompletion popup without using a
+match so that the list can be narrowed down by typing more characters.
 
