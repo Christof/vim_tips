@@ -888,3 +888,10 @@ used with the following commands:
 Using `<C-n><C-p>` opens the autocompletion popup without using a
 match so that the list can be narrowed down by typing more characters.
 
+To use the dictionary lookup the internal speel checker must be enabled
+(`:set spell`) or the `dictionary` option must be set to a file or many
+files containing word lists.
+
+The line completion ignores the indentation at the start of the line, so
+it is usefull for duplicating lines when we don't know where the source
+line is.
