@@ -895,3 +895,12 @@ files containing word lists.
 The line completion ignores the indentation at the start of the line, so
 it is usefull for duplicating lines when we don't know where the source
 line is.
+
+Filename autocompletion always expands files relative to the working
+directory and not to the currently edited file. The working directory
+can be queried with `:pwd` and changed with `:cd {path}`, `:cd -`
+changes back to the last directory.
+
+Omni-completion (`<C-x><C-o>`) is Vim's intellisense. It gives choices
+depending on the context and therefore is dependent on file-type
+plugins.
