@@ -904,3 +904,20 @@ changes back to the last directory.
 Omni-completion (`<C-x><C-o>`) is Vim's intellisense. It gives choices
 depending on the context and therefore is dependent on file-type
 plugins.
+
+### Spell Checker
+
+Vim has a built in spell checker. It is enabled with `:set spell`. The
+following commands are available to move between unknown words and to
+interact with the dictionary:
+
+| Command | Description                                  |
+| ------- | -----------                                  |
+| `[s`    | Jump to next spelling error                  |
+| `]s`    | Jump to previous spelling error              |
+| `=z`    | Suggest corrections for current word         |
+| `zg`    | Add current word to spell file               |
+| `zw`    | Remove current word from spell file          |
+| `zug`   | Revert `zg` or `zw` command for current word |
+
+
