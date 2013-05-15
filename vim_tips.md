@@ -9,13 +9,13 @@ _re_ after a command and in front of another command means that the default comm
 | Longhand | Compound | Descriptions                                               |
 | -------- | -------- | ------------                                               |
 | `cl`     | `s`      | Replaces the underlying character but stays in insert mode |
-| `^C`     | `S`      | Changes the whole line independent of cursor positon       |
+| `^C`     | `S`      | Changes the whole line independent of cursor position      |
 
 ### Copy & Paste
 
 Vim's copy command is called yank `y`, past is `p` and cut is `d`. They
 use the unnamed register `""` if not specified otherwise. A specific
-register can be used be preceeding the command with `"{register}"`.
+register can be used be preceding the command with `"{register}"`.
 A register name can be a character from `a` to `z`. If a register is
 addressed with an uppercase letter the content is appended to it. On the
 other hand lowercase letters overwrite the content of the register.
@@ -23,7 +23,7 @@ Another special register is the black hole register `"_` which doesn't
 store anything. This could also be a used in the example below.
 
 A yank does not only put the content into the unnamed register but also
-in the yank register `"0`. This is helpfull when replacing something
+in the yank register `"0`. This is helpful when replacing something
 with the last yanked content, because delete overwrites the unnamed
 register. Example:
 
@@ -39,7 +39,7 @@ var = 1; process(var);
 ```
 
 Pasting with `p` places the yanked content after the cursor and `P`
-before the cursor. Depending on the yankend content, before and after
+before the cursor. Depending on the yanked content, before and after
 are relative to either characters or lines if a whole line was yanked.
 `gp` and `gP` have the same pasting behavior as the two previously
 described commands, but they place the cursor at the end of the placed
@@ -53,9 +53,9 @@ Pasting can also be achieved in insert mode by using `<C-r>{register}`.
 The unnamed register can be addressed with `"`.
 
 Using the systems paste command can result in strange formatted code
-because vim treats the in put as if someone was typing it and applys
-intendation rules. To disable autoindent, abbreviations and other
-features which are not usefull when pasting, the `paste` option can be
+because Vim treats the in put as if someone was typing it and applies
+indentation rules. To disable autoindent, abbreviations and other
+features which are not useful when pasting, the `paste` option can be
 set before pasting. The option can be unset with `:set nopaste`. It can
 also be bound to a key like F5 with `:set pasttoggle=<f5>`. Pasting from
 the clipboard register `"+` automatically enables the `paste` option.
@@ -82,7 +82,7 @@ Some more special registers:
 | ------- | ------         |
 | `g~`    | Swap case      |
 | `gu`    | Make lowercase |
-| `gU`    | Make upercase  |
+| `gU`    | Make uppercase |
 | `>`     | Shift right    |
 | `<`     | Shift left     |
 
@@ -104,9 +104,9 @@ Some more special registers:
 | `e`         | Forward to end of current/next word        |
 | `ge`        | Backward to end of previous word           |
 
-`w`, `b`, `e` and `ge` use the defintion of a word as a sequence of
-letters, digits and undscores or as a sequence of other nonblank
-characters separated with whitspace. These commands have an uppercase
+`w`, `b`, `e` and `ge` use the definition of a word as a sequence of
+letters, digits and underscores or as a sequence of other nonblank
+characters separated with whitespace. These commands have an uppercase
 equivalent (`W`, `B`, `E`, `gE`) which uses the WORD definition. A WORD
 is a sequence of nonblank characters separated with whitespace.
 
@@ -162,18 +162,18 @@ mode.
 
 Surround.vim is plugin which can be used to surround a selection with
 delimiters, change delimiters or delete delimiters. Delimiters can be
-any kind of paranthesis or `"` and `'`, like text-objects.
+any kind of parenthesis or `"` and `'`, like text-objects.
 
-| Old text         | Command | New text         | Description               |
-| -------          | ------- | --------         | -----------               |
-| `Hello w*orld`   | `ysiw)` | `Hello (world)`  | Add sourroundings `ys`    |
-| `"Hello *world"` | `cs"'`  | `'*Hello world'` | Change sourroundings `cs` |
-| `"Hello *world"` | `ds"`   | `*Hello world`   | Delete sourroundings `ds` |
+| Old text         | Command | New text         | Description              |
+| -------          | ------- | --------         | -----------              |
+| `Hello w*orld`   | `ysiw)` | `Hello (world)`  | Add surroundings `ys`    |
+| `"Hello *world"` | `cs"'`  | `'*Hello world'` | Change surroundings `cs` |
+| `"Hello *world"` | `ds"`   | `*Hello world`   | Delete surroundings `ds` |
 
-#### Jump between matching paranthesis
+#### Jump between matching parenthesis
 
-`%` jumps between matching paranthesis like `()`, `{}` and `[]`, but it
-works also for XML tags and language constracts like `do end` and `if
+= `%` jumps between matching parenthesis like `()`, `{}` and `[]`, but it =
+works also for XML tags and language constructs like `do end` and `if
 end` in ruby when the _matchit_ plugin is enabled.
 
 #### Jump list
@@ -192,7 +192,7 @@ are listed below:
 | `{`/`}`                       | start of previous/next paragraph                |
 | `H`/`M`/`L`                   | start of top/middle/bottom of screen            |
 | `gf`                          | file name under the cursor (suffixesadd option) |
-| `<C-]>` _re_`<Leader>g`       | definition of keyword und der cursor            |
+| `<C-]>` _re_`<Leader>g`       | definition of keyword under cursor            |
 | `` `{mark}`` _re_ `<Leader>m` | a mark                                          |
 
 Vim maintains multiple jump lists. Each is scoped to a window.
@@ -210,7 +210,7 @@ This is a record of made changes and can be queried with `:changes`.
 #### Markers
 
 To mark a location use `m{a-zA-Z}` the lowercase letters are local to
-the file the upercase letters are global. `´{mark}` move to the line of
+the file the uppercase letters are global. `´{mark}` move to the line of
 the mark. `` `{mark}`` _re_`<C-m>{mark}` moves to the exact 
 position. Vim defines some special markers:
 
@@ -226,7 +226,7 @@ position. Vim defines some special markers:
 
 ### Macros
 
-A macro can be recoreded by pressing `q{register}`. Recording is
+A macro can be recorded by pressing `q{register}`. Recording is
 indicated in the status line. By typing `q` again the recording is
 stopped. The macro can be displayed with `:reg {register}`. `^[` is used
 to indicate pressing of the escape key. A macro can be replayed with
@@ -238,16 +238,16 @@ execution. Parallel execution can be achieved with a visual selection
 if a search command finds nothing on the line). Commands can be added to
 a macro if the uppercase letter is used for the register.
 
-Macros can be edited directly in vim as text by putting the content of
+Macros can be edited directly in Vim as text by putting the content of
 the register into the file. This can be achieved with `"{register}p` or
 with `:put {register}`. The later always puts the content into a new
 lines below the current line, which is preferable for editing a macro.
 To get the edited text back into the register `"{register}dd` or (`:da`)
 can be used. This could cause problems because it appends a trailing
-`^J` for the linebreak. To avoid this, this longer version can be used:
+`^J` for the line break. To avoid this, this longer version can be used:
 `0"{register}y$dd`. An alternative to editing the macro in the text is
 to use Vim script functions like `substitute()`. A list of functions can
-be found in the help files: `:h function-list`. Subsititue can be used
+be found in the help files: `:h function-list`. Substititue can be used
 like: `:let @{register}=substitute(@{register}, '{pattern}',
 '{replacement}', '{options like g}'`.
 
@@ -264,7 +264,7 @@ and execute it multiple times by prefixing the macro call with a count.
 #### Example: Number items in a list
 
 ```
-:let i = 1           // declare a vim script variable i
+:let i = 1           // declare a Vim script variable i
 qa                   // start macro recoding
 I<C-r>=i<CR>) <ESC>  // go to insert mode, evaluate i and add ) 
 :let i += 1          // increase i by 1
@@ -284,57 +284,57 @@ all key mappings.
 
 ## Insert mode
 
-| Shortcut               | Description                              |
-| --------               | -----------                              |
-| `<C-h>`                | Same as backspace                        |
-| `<C-w>`                | Delete back one word                     |
-| `<C-u>`                | Delete back to start of line             |
-| `<C-o>`                | Switch to Insert Normal mode             |
-| `<C-r>{register}`      | Paste from register                      |
-| `<C-r><C-p>{register}` | Paste from register and fixe indentation |
-| `<C-r>=`               | Evaluate expression (Calculator)         |
-| `<C-T>`                | Insert one shiftwidth of indent          |
-| `<C-D>`                | Delete one shiftwidth of indent          |
-| `<C-v>{code}`          | Enter character by decimal code          |
-| `<C-v>u{code}`         | Enter character by hexadecimal code      |
-| `<C-v>{nondigit}`      | Enter nondigit literally                 |
-| `<C-k>{char1}{char2}`  | Enter character by digraph               |
+| Shortcut               | Description                             |
+| --------               | -----------                             |
+| `<C-h>`                | Same as backspace                       |
+| `<C-w>`                | Delete back one word                    |
+| `<C-u>`                | Delete back to start of line            |
+| `<C-o>`                | Switch to Insert Normal mode            |
+| `<C-r>{register}`      | Paste from register                     |
+| `<C-r><C-p>{register}` | Paste from register and fix indentation |
+| `<C-r>=`               | Evaluate expression (Calculator)        |
+| `<C-T>`                | Insert one shiftwidth of indent         |
+| `<C-D>`                | Delete one shiftwidth of indent         |
+| `<C-v>{code}`          | Enter character by decimal code         |
+| `<C-v>u{code}`         | Enter character by hexadecimal code     |
+| `<C-v>{nondigit}`      | Enter nondigit literally                |
+| `<C-k>{char1}{char2}`  | Enter character by digraph              |
 
 Insert Normal mode can be used to trigger one normal mode command, after
 which Vim returns automatically to insert mode. For example `<C-o>zz`
-centers the screen vertically and can be executed during writting in
+centers the screen vertically and can be executed during writing in
 insert mode.
 
-Some normal mode commands which goe along the above shown shortcuts
+Some normal mode commands which goes along the above shown shortcuts
 
 | Command     | Description                          |
 | -------     | -----------                          |
 | `ga`        | Show code for character under cursor |
-| `:digraphs` | Sho a table of digraphs              |
+| `:digraphs` | Show a table of digraphs             |
 
 ### Replace mode
 
 Replace mode can be issued from Normal mode with `R`. It behaves like
-other editor when the insert key was presed. Tab characters can pose a
+other editor when the insert key was pressed. Tab characters can pose a
 problem in Replace mode if the mode is started on one of the 'spaces'
 representing the tab. An alternative is the Virtual Replace mode which
-handles the tab character like some space characters and is triggerde
+handles the tab character like some space characters and is triggered
 with `gR`.
 
 
 ## Visual mode
 
 Visual mode can be used to select text visually like in other editors
-when selecting text with the mouse. It is triggerd with `v` followed by
+when selecting text with the mouse. It is triggered with `v` followed by
 movement commands. In Visual mode the free end is indicated by the
 blinking cursor. The free end can be switched between the start of the
 selection and the end of the selection by pressing `o`.
 
 `V` starts the line-wise Visual mode. This can for example be used for
-line-wise visual command wich can also be repeated: `Vj>.` selects the
+line-wise visual command which can also be repeated: `Vj>.` selects the
 current and next line and indents them twice.
 
-In gernal operators should be prefered to Visual commands if possible,
+In vernal operators should be preferred to Visual commands if possible,
 because the later doesn't always work with the dot command in an
 expected way because the command is repeated for the same selection
 size. So a command on a word with `vit` might fail when repeated in the
@@ -356,7 +356,7 @@ can be achieved with `<C-g>`.
 
 ## Command-Line mode
 
-This mode stems from the 'ancestors' of vim: the line editors ex and ed.
+This mode stems from the 'ancestors' of Vim: the line editors ex and ed.
 Command-Line mode is started by typing `:` in Normal mode. Afterwards an
 Ex command can be entered and executed with `<CR>`. This returns us to
 Normal mode. Another way to exit Command-Line mode is to use `<Esc>`.
@@ -413,14 +413,14 @@ form: `:[range] global[!] /{pattern}/ [cmd]`. In contrast to most other
 Ex commands, the default range is the entire file (`%`) and not the
 current line (`.`). The pattern is part of the search history and can be
 left black for using the last search pattern. If the command is not
-specified, vim uses `:print` as default. The command can be executed by
+specified, Vim uses `:print` as default. The command can be executed by
 all lines not matching the pattern when `:global!` or `vglobal` is used.
 
 For example to delete everything but the content of html tags,
 one could use the following command: `:g/\v\<\/?\w+>/d`. Another example
 is to collect all TODO items in a register. First all TODO items in a
 file could be displayed with: `:g/TODO`. Before using the register "a,
-it is cleared with `qaq`. Now the TODO itmes can be added to the
+it is cleared with `qaq`. Now the TODO items can be added to the
 register: `:g/TODO/yank A` and afterwards displayed using `:reg a`. This
 approach scales well in combination with `:argdo` and `:bufdo` for
 multiple files. A complex example is to sort the properties of each rule
@@ -434,14 +434,14 @@ to see how many lines are selected for each global match.
 
 ### Interaction with the shell
 
-Vim can call shell commands and ouputs from the shell commands can be
+Vim can call shell commands and outputs from the shell commands can be
 inserted as text.
 
 | Command                | Description                                                    |
 | -------                | -----------                                                    |
 | `:shell`               | Starts a shell (return to Vim by typing exit)                  |
 | `:!{cmd}`              | Execute {cmd} with the shell (return with enter)               |
-| `:read !{cmd}`         | Execute {cmd} and insert its standard ouput below the cursor   |
+| `:read !{cmd}`         | Execute {cmd} and insert its standard output below the cursor   |
 | `:[range]write !{cmd}` | Execute {cmd} with [range] lines as standard input             |
 | `:[range]!{filter}`    | Filter the specified [range] through external program {filter} |
 | `!{motion}`            | Start Command-line mode prepopulated with corresponding range  |
@@ -472,18 +472,18 @@ error by using the `!` as postfix, like `:bnext!`. Now the modified
 files is marked with the letter `h` for hidden. The current buffer is
 marked with an `a` for active. If the `hidden` option is set, the `!`
 versions of the commands are not necessary. This is also useful for
-working with the argument list (`:argdo`). When vim is closed with `:q`,
+working with the argument list (`:argdo`). When Vim is closed with `:q`,
 it loads the first hidden file, which can be saved with `:w` or
 discarded with `:e!`. `:qa[ll]` closes all windows, discarding changes
 without warning. `:wa[ll]` writes all modified buffers to disk.
 
-If vim is started by passing a directory as argument, it starts netrw,
+If Vim is started by passing a directory as argument, it starts netrw,
 its file explorer. Netrw is also started when passing a directory to
 `:edit`. The NERDTree plugin can be used as replacement and is also
 started automatically.
 
 A file which is only editable by a super user, can normally not be saved
-by vim, when vim is not started by a super user. Using the following
+by Vim, when Vim is not started by a super user. Using the following
 command this can be circumvented: `:w !sudo tee % > /dev/null` __re__
 `:wsu`.
 
@@ -535,7 +535,7 @@ are available:
 | `:tabe[dit] {filename}` |                     | Open {filename} in a new tab                               |
 |                         | `<C-w>T`            | Move the current window into its own tab                   |
 | `:tabc[lose]`           |                     | Close the current tab and all of its windows               |
-| `:tabo[nly]`            |                     | Keppe the active tab page, closing all others              |
+| `:tabo[nly]`            |                     | Keep the active tab page, closing all others               |
 | `:tab[ext] {number}`    |                     | Switch to tab page {number}                                |
 | `:tab[ext]`             | `gt` __re__ `<S-k>` | Switch to next tab page (right)                            |
 | `:tap[revious]`         | `gT` __re__ `<S-j>` | Switch to previous tab page (left)                         |
@@ -558,7 +558,7 @@ mutes the highlighting temporarily until the next search. When
 `incsearch` is enabled (default is disabled), Vim highlight matches as
 the search pattern is typed and does not wait until `<CR>` is pressed.
 If `<Esc>` is pressed during incremental search, the cursor returns to
-the starting position. Autocompletion of search patterns can be triggerd
+the starting position. Autocompletion of search patterns can be triggered
 with `<C-r><C-w>`. The count of matches of the current pattern is
 displayed with the following trick: `:%s///gn`.
 
@@ -568,7 +568,7 @@ following search: `/{pattern}/e<CR>` or with the last pattern `//e<CR>`.
 
 Commands can operate on the whole match by using `//e`. So for example
 for changing all characters of a match to uppercase this command could
-be used `gU//e<CR>`. To repeat this action with the dot commad, the next
+be used `gU//e<CR>`. To repeat this action with the dot command, the next
 match must be addressed with `//<CR>` and not with `n`.
 
 If a search pattern needs to be refined it can be reused by typing
@@ -591,15 +591,15 @@ case as long as now uppercase character is in the search pattern.
 
 In the default mode parenthesis `()` must be escaped for grouping. `{}`
 are per default also matched literally whereas square brackets `[]` have
-special meaning. A pattern for 6 digit hex values like a color in css 
+special meaning. A pattern for 6 digit hex values like a color in CSS 
 would look like:
 
 ```
 /#\([0-9a-fA-F]\{6}\)
 ```
 
-Note that the curly bracktes only have to be escaped when they are
-opened. The very magic search is closer to Perl, Pyhton or Ruby regular
+Note that the curly brackets only have to be escaped when they are
+opened. The very magic search is closer to Perl, Python or Ruby regular
 expressions and is enabled with `\v`. Now all characters except '_',
 letters and numbers have special meaning. The color example now could be
 written as:
@@ -615,7 +615,7 @@ Using the `\x` character class for hex digits results in:
 ```
 
 In other cases it is useful to use verbatim searches. These can be
-enabeld with the very nomagic switch `\V`. Searching for example for
+enabled with the very nomagic switch `\V`. Searching for example for
 'e.g.' would be `/e\.g\.` and `/\Ve.g.` with very nomagic mode. In this
 mode only `\`, `/` (only for forward searching) and `?` (only for
 backward searching) have a special meaning.
@@ -624,7 +624,7 @@ Since the escaping of characters by hand can be cumbersome, Vim script
 has a function that can be used instead: `escape({string}, {chars})`.
 The first argument is the string in which characters should be escaped.
 This string could for example be passed by a register with
-`@{register}`. An URl which resides in register u could be searched for
+`@{register}`. An URL which resides in register u could be searched for
 like:
 
 ```
@@ -634,16 +634,16 @@ like:
 =escape(@u, getcmdtype().'\')<CR>  // escape all '/' and '\'. '.' concatenates strings
 ```
 
-Parantheses (only in very magic mode with out escaping) can be used to
+Parentheses (only in very magic mode with out escaping) can be used to
 capture submatches. For example duplicated words can be found with
 `\v(\w+)\_s+1\1>`. Captured submatches can be accessed with `\{number}`
 where the number starts at 1. `\0` is the entire match. In this
 expression the word boundaries are matched with `< >` and `\_s` matches
-whitespace or a linebreak. These submatches are not particularly useful
-for serach, but are very handy for substitutions.
+whitespace or a line break. These submatches are not particularly useful
+for search, but are very handy for substitutions.
 
 `\zs` and `\ze` can be used to crop the match and make it to a subset of
-the pattern. Example: Seach for Vim but only highlight Vi `Vi\zem`.
+the pattern. Example: Search for Vim but only highlight Vi `Vi\zem`.
 Another example is matching the content of a string without the
 delimiters: `/\v"\zs[^"]+\ze"`.
 
@@ -652,7 +652,7 @@ delimiters: `/\v"\zs[^"]+\ze"`.
 | `\w`         | Word characters: letters, numbers and '_'    |
 | `\W`         | Everything except word characters            |
 | `%(...)`     | Don't capture submatch                       |
-| `\_s`        | Matches whitespace or linebreak              |
+| `\_s`        | Matches whitespace or line break             |
 | `<...>`      | Word boundaries (do not match any character) |
 | `\zs`        | Start of the match (also zero width)         |
 | `\ze`        | End of the match (also zero width)           |
@@ -660,7 +660,7 @@ delimiters: `/\v"\zs[^"]+\ze"`.
 <a id="Substitution"></a>
 ## Substitution
 
-Vim supports powerful substituions with following ex command:
+Vim supports powerful substitutions with following ex command:
 
 `:[range]s[ubstitute]/{pattern}/{string}/[flags]`
 
@@ -668,7 +668,7 @@ The flags are explained in the table below:
 
 | Flag | Meaning                                                                         |
 | ---- | -------                                                                         |
-| `g`  | Globally applies substitition, which means not just the first in each line      |
+| `g`  | Globally applies substitution, which means not just the first in each line      |
 | `c`  | Substitutions must be confirmed or rejected                                     |
 | `n`  | Suppresses the substitution behaviour and counts the occurrences of the pattern |
 | `i`  | Ignore case for the pattern regardless of the overall settings                  |
@@ -678,15 +678,15 @@ The flags are explained in the table below:
 
 When searching with the `c` flag the following options are available:
 
-| Option  | Meaning                                              |
-| ------  | -------                                              |
-| `y`     | Substitute this match                                |
-| `n`     | Skip this match                                      |
-| `q`     | Quit substituting                                    |
-| `l`     | "last"; Substitute this match, then quit             |
-| `a`     | "all"; Substitute this and and any remaining matches |
-| `<C-e>` | Scroll the screen up                                 |
-| `<C-y>` | Scroll the screen down                               |
+| Option  | Meaning                                          |
+| ------  | -------                                          |
+| `y`     | Substitute this match                            |
+| `n`     | Skip this match                                  |
+| `q`     | Quit substituting                                |
+| `l`     | "last"; Substitute this match, then quit         |
+| `a`     | "all"; Substitute this and any remaining matches |
+| `<C-e>` | Scroll the screen up                             |
+| `<C-y>` | Scroll the screen down                           |
 
 Special characters for the replacement string:
 
@@ -695,7 +695,7 @@ Special characters for the replacement string:
 | `\r`            | Insert a carriage return                                      |
 | `\t`            | Insert a tab character                                        |
 | `\\`            | Insert a backslash character                                  |
-| `\{1-9}`        | Insert the first to nineth submatch                           |
+| `\{1-9}`        | Insert the first to ninth submatch                           |
 | `\0` or `&`     | Insert the entire matched pattern                             |
 | `~`             | Use {string} from the previous substitution command execution |
 | `\={Vim script} | Evaluate {Vim script} expression and use it as {string}       |
@@ -733,7 +733,7 @@ be used with a little help of a dictionary in Vim script:
 
 ```
 
-An alternative is the Abolish.vim plugin which reduces the same task to
+An alternative is the Abolish.Vim plugin which reduces the same task to
 `:%S/{a,b}/{b,a}/g`.
 
 Substitution in multiple files can be achieved with the standard
@@ -746,7 +746,7 @@ commands like in the following example:
 :argdo %s//replacement/ge
 ```
 
-An alternative is to use the Quickfix List (`copen`), `:vimgrep` and the
+An alternative is to use the Quickfix List (`copen`), `:Vimgrep` and the
 qargs plugin or a Vim script (part of
 [dotjanus](https://github.com/Christof/dotjanus)).
 
@@ -767,7 +767,7 @@ To use ctags it must be installed on the system. It is called
 exuberant-ctags on linux. If the program is installed the tags can be
 created with `:!ctags -R --exclude=.git --languages=-sql`. This command
 creates tags recursively from the current working directory including
-the git folder and sql files. Vim can execute the command automatically
+the git folder and SQL files. Vim can execute the command automatically
 every time after a file is saved: `:autocmd BufWritePost * call
 system("ctags -R")`. The tags are stored in a plain text file which is
 called tags. Keywords are addressed with a search command. This ensures
@@ -787,7 +787,7 @@ which is achieved by replacing `{keyword}` with `/{pattern}`.
 
 ### Quickfix List
 
-Source code can be compiled within Vim by issueing the `:make` command.
+Source code can be compiled within Vim by issuing the `:make` command.
 Vim records all warnings and errors in the quickfix list and jumps to
 the first item in the list. If one wants to stay at the current location
 the `:make!` should be used instead. The following list of command moves
@@ -811,15 +811,15 @@ through the quickfix list (and through the location list if the prefix
 `:cnext` and `:cprev` can be prefixed by a number to skip entries. The
 quickfix list can be traversed like any other text with `j` and `k` as
 well as with search commands. Pressing `<CR>` on an entry opens the
-corresponding location in the window above. Vim stores old quifix lists.
+corresponding location in the window above. Vim stores old quickfix lists.
 The history can be accessed with `:colder` and `:cnewer`. This enables
 reusing of results of `:make` and `:grep`.
 
 #### Location list
 
 For every command which populates the quickfix list (`:make`, `:grep`
-and `:vimgrep`) there is a corresponding command with the prefix `l`
-(`:lmake`, `:lgrep` and `:lvimgrep`) which populates the location list.
+and `:Vimgrep`) there is a corresponding command with the prefix `l`
+(`:lmake`, `:lgrep` and `:lVimgrep`) which populates the location list.
 The difference between the two lists is that there can only exist one
 quickfix list but many location lists. The location list is bound to the
 active window.
@@ -838,16 +838,16 @@ The option `errorformat` defines how the output is parsed. The
 ### Project-wide search
 
 `:grep` is a wrapper around grep (or any program like grep, e.g. ack) to
-stay in vim when searching multiple files. The results are placed in the
+stay in Vim when searching multiple files. The results are placed in the
 quickfix list. For example searching for a word ignoring the casing can
-be achieved with `:grep -i search_word *`. The asterix denotes the file
+be achieved with `:grep -i search_word *`. The asterisk denotes the file
 types which should be considered. As with make the executed program can
 be change. The options used to configure the behaviour are `greprg` and
-`grepformat`. As another alternative Vim provides the `:vimgrep` command
-which uses the internal search engine: `:vrim[grep][!] /{pattern}/[g][j]
-{file(s)}`. The `j` option prevents vim from jumping to the first match.
+`grepformat`. As another alternative Vim provides the `:Vimgrep` command
+which uses the internal search engine: `:vim[grep][!] /{pattern}/[g][j]
+{file(s)}`. The `j` option prevents Vim from jumping to the first match.
 For the file(s) a wildcard can be used. `**` stands for any file in the
-directory or in subdirectories. `##` exapnds to the files in the
+directory or in subdirectories. `##` expands to the files in the
 argument list. Leaving the search field empty to use the last search
 like for `:substitute` and `:global` is not supported.
 
@@ -856,7 +856,7 @@ like for `:substitute` and `:global` is not supported.
 Autocompletion can be triggered in insert mode with `<C-n>` and `<C-p>`
 which move through the list of suggested items (next and previous). Case
 sensitivity follows the setting of the search command. The `infercase`
-option can be set, so that the casing is infered from the typed
+option can be set, so that the casing is inferred from the typed
 characters. Vim supports multiple completion types:
 
 | Command      | Type of completion      |
@@ -888,12 +888,12 @@ used with the following commands:
 Using `<C-n><C-p>` opens the autocompletion popup without using a
 match so that the list can be narrowed down by typing more characters.
 
-To use the dictionary lookup the internal speel checker must be enabled
+To use the dictionary lookup the internal spell checker must be enabled
 (`:set spell`) or the `dictionary` option must be set to a file or many
 files containing word lists.
 
 The line completion ignores the indentation at the start of the line, so
-it is usefull for duplicating lines when we don't know where the source
+it is useful for duplicating lines when we don't know where the source
 line is.
 
 Filename autocompletion always expands files relative to the working
