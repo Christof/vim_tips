@@ -247,7 +247,7 @@ can be used. This could cause problems because it appends a trailing
 `^J` for the line break. To avoid this, this longer version can be used:
 `0"{register}y$dd`. An alternative to editing the macro in the text is
 to use Vim script functions like `substitute()`. A list of functions can
-be found in the help files: `:h function-list`. Substititue can be used
+be found in the help files: `:h function-list`. Substitute can be used
 like: `:let @{register}=substitute(@{register}, '{pattern}',
 '{replacement}', '{options like g}'`.
 
@@ -416,7 +416,7 @@ left black for using the last search pattern. If the command is not
 specified, Vim uses `:print` as default. The command can be executed by
 all lines not matching the pattern when `:global!` or `vglobal` is used.
 
-For example to delete everything but the content of html tags,
+For example to delete everything but the content of HTML tags,
 one could use the following command: `:g/\v\<\/?\w+>/d`. Another example
 is to collect all TODO items in a register. First all TODO items in a
 file could be displayed with: `:g/TODO`. Before using the register "a,
@@ -670,7 +670,7 @@ The flags are explained in the table below:
 | ---- | -------                                                                         |
 | `g`  | Globally applies substitution, which means not just the first in each line      |
 | `c`  | Substitutions must be confirmed or rejected                                     |
-| `n`  | Suppresses the substitution behaviour and counts the occurrences of the pattern |
+| `n`  | Suppresses the substitution behavior and counts the occurrences of the pattern |
 | `i`  | Ignore case for the pattern regardless of the overall settings                  |
 | `I`  | Don't ignore case for the pattern regardless of the overall settings            |
 | `&`  | Reuses flags from last substitution                                             |
@@ -703,8 +703,7 @@ Special characters for the replacement string:
 The last search pattern can be used by leaving the `{pattern}` empty.
 This allows for decoupling of searching and replacing, so that on a
 first attempt with a wrong pattern, the substitution isn't performed on
-wrong matches. A drawback of this method is that the two steps go into
-two different histories and cannot be reused easily. To get a good
+wrong matches. A drawback of this method is that the two steps go into two different histories and cannot be reused easily. To get a good
 history even with a separate search can be achieved by pasting the last
 search into the command line with `<C-r>/`.
 
@@ -720,7 +719,7 @@ last flags also are reused.
 __re__: `:&&` is mapped to `&` in Normal and Visual mode.
 
 Submatches can be accessed in Vim script with the `submatch({0-9})`
-function. For example to increment each html heading this feature could
+function. For example to increment each HTML heading this feature could
 be used like: `/\v/\<\/?h\zs\d/\=submatch(0)+1/g`.
 
 To swap two words (a and b in the example) the substitution command can
@@ -842,7 +841,7 @@ stay in Vim when searching multiple files. The results are placed in the
 quickfix list. For example searching for a word ignoring the casing can
 be achieved with `:grep -i search_word *`. The asterisk denotes the file
 types which should be considered. As with make the executed program can
-be change. The options used to configure the behaviour are `greprg` and
+be change. The options used to configure the behavior are `greprg` and
 `grepformat`. As another alternative Vim provides the `:Vimgrep` command
 which uses the internal search engine: `:vim[grep][!] /{pattern}/[g][j]
 {file(s)}`. The `j` option prevents Vim from jumping to the first match.
@@ -920,4 +919,17 @@ interact with the dictionary:
 | `zw`    | Remove current word from spell file          |
 | `zug`   | Revert `zg` or `zw` command for current word |
 
-
+The default spell checking language is English (`en`). This can be changed with
+the `spelllang` option, which is specific to a buffer. The default `en`
+supports different variants of English and permits the different
+spellings. This can be narrowed down by setting it to `en_us`. More
+details can be found under `:h spell-remarks`. If the option is set to a
+language which is not available locally, downloading of the language
+file is offered automatically. When adding words with `zg` they are put
+into the default spellfile. Vim supports multiple spellfiles, which can
+be handy for organizing different groups of words. For example a file
+containing Vim jargon can separate Vim commands from normal text. To add
+a spellfile use `set spellfile+=/path/to/spellfile.utf-8.add`. Now the
+file which should store the new word is given by prepending the command
+with the number: `2zg` would add it to the new spellfile if only one was
+previously set.
