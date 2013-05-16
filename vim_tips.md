@@ -933,3 +933,10 @@ a spellfile use `set spellfile+=/path/to/spellfile.utf-8.add`. Now the
 file which should store the new word is given by prepending the command
 with the number: `2zg` would add it to the new spellfile if only one was
 previously set.
+
+Spell checking also works in Insert mode with the special autocompletion
+command `<C-x>s`. This goes back in the current line to a misspelled
+word and shows options in a popup menu.
+
+
+
