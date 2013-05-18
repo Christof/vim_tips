@@ -938,5 +938,20 @@ Spell checking also works in Insert mode with the special autocompletion
 command `<C-x>s`. This goes back in the current line to a misspelled
 word and shows options in a popup menu.
 
+### Customization
 
+Vim can be customized by changing settings in the `.vimrc` file or
+setting it for the current session with an Ex command. The list of
+options is shown with `:h option-list`. For boolean options like
+`ignorecase` the following operations can be performed:
+
+* `:set ignorecase` enabled the feature
+* `:set noignorecase` disables the feature
+* `:set ignorecase!` toggles the setting
+* `:set ignorecase?` returns the current value of the option
+* `:set ignorecase&` reset the option to the default value
+
+Settings with values can be changed like: `:set tabstop=2`.
+`:setlocal` can be used instead of `:set` to change the settings only
+for the active buffer or window (for example for `number`).
 
