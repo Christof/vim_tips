@@ -955,3 +955,19 @@ Settings with values can be changed like: `:set tabstop=2`.
 `:setlocal` can be used instead of `:set` to change the settings only
 for the active buffer or window (for example for `number`).
 
+Changes can be written es Ex commands in any file. The file can be
+loaded with `:source {filename}` which executes each line as Ex command.
+The `.vimrc` file is opened with the command `:edit $MYVIMRC`. After
+performing changes in the file the system can be updated with 
+`:source $MYVIMRC`. If the file is in the active buffer then `:so %` can
+be used as shortcut.
+ 
+To change settings depending on the file type the `autocmd` can be used,
+which listens to events, like file types. To change the tabbing for ruby
+the following command can be used: `autocmd FileType ruby setlocal
+tabstop=2`. The file type option must be enabled so that the command can
+work: `filetype on`. An alternative which is useful for many changes is the
+`ftplugin`. This loads whole files (residing in the `ftplugin` directory
+of the `.vim` folder) depending on the file type. It is enabled with
+`filetype plugin on`.
+
