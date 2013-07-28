@@ -114,6 +114,7 @@ is a sequence of nonblank characters separated with whitespace.
 Vim has character search commands, which are handy to navigate within a
 line, because they move to the next occurrence of the specified
 character:
+
 | Command        | Description                                           |
 | -------        | -----------                                           |
 | `f{character}` | Forward to the next occurrence                        |
