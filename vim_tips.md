@@ -13,9 +13,9 @@ _re_ after a command and in front of another command means that the default comm
 
 ### Copy & Paste
 
-Vim's copy command is called yank `y`, past is `p` and cut is `d`. They
+Vim's copy command is called yank `y`, paste is `p` and cut is `d`. They
 use the unnamed register `""` if not specified otherwise. A specific
-register can be used be preceding the command with `"{register}"`.
+register can be used by preceding the command with `"{register}"`.
 A register name can be a character from `a` to `z`. If a register is
 addressed with an uppercase letter the content is appended to it. On the
 other hand lowercase letters overwrite the content of the register.
