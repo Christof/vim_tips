@@ -915,7 +915,7 @@ interact with the dictionary:
 | ------- | -----------                                  |
 | `[s`    | Jump to next spelling error                  |
 | `]s`    | Jump to previous spelling error              |
-| `=z`    | Suggest corrections for current word         |
+| `z=`    | Suggest corrections for current word         |
 | `zg`    | Add current word to spell file               |
 | `zw`    | Remove current word from spell file          |
 | `zug`   | Revert `zg` or `zw` command for current word |
