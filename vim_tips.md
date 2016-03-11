@@ -579,6 +579,10 @@ Command mode. After the changes are made, any command can be executed
 with `<CR>`. The Command-Line Window prepopulated with the last executed
 commands is opened with `q:`.
 
+`gn` moves to next search result and uses visual mode to select it. This
+can be useful to combine with actions like `dgn`. Also the `.` command
+now both moves to the next result and performs the action.
+
 ## Patterns
 
 Patterns in Vim can be used to accomplish different tasks, like
