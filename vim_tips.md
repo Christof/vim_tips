@@ -10,6 +10,7 @@ _re_ after a command and in front of another command means that the default comm
 | -------- | -------- | ------------                                               |
 | `cl`     | `s`      | Replaces the underlying character but stays in insert mode |
 | `^C`     | `S`      | Changes the whole line independent of cursor position      |
+| `U`      |          | Undo all changes in the current line                       |
 
 ### Copy & Paste
 
