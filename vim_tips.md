@@ -11,6 +11,15 @@ _re_ after a command and in front of another command means that the default comm
 | `cl`     | `s`      | Replaces the underlying character but stays in insert mode |
 | `^C`     | `S`      | Changes the whole line independent of cursor position      |
 | `U`      |          | Undo all changes in the current line                       |
+| `vim.slp.buf.hover()`  | `K`          | Shows documentation of symbol under cursor. Jumps to help section when already in help.  |
+|          | `KK`          | Same as above, but it jumps into the floating window  |
+| `vim.lsp.buf.definition()` | `<C-]>` _re_ `gd` | Go to definition                                        |
+| `vim.lsp.buf.references()`    | `grr` | List all references to the symbol under the cursor in quifix list           |
+| `vim.lsp.buf.rename()` | `grn` | Rename variable or function                                |
+| `vim.lsp.buf.code_action()` | `gra` | Runs a code action                                         |
+| `vim.lsp.buf.implementation()` | `gri` | Lists all implementations for the sysmbol under the cursor in the quickfix window   |
+| `vim.lsp.buf.document_symbol()` | `gO` | Lists all symbols in the current buffer in the quickfix window  |
+| `vim.lsp.buf.signature_help()` | `<C-s>` | Shows signature information of the symbol in insert mode |
 
 ### Copy & Paste
 
@@ -194,7 +203,7 @@ are listed below:
 | `{`/`}`                       | start of previous/next paragraph                |
 | `H`/`M`/`L`                   | start of top/middle/bottom of screen            |
 | `gf`                          | file name under the cursor (suffixesadd option) |
-| `<C-]>` _re_`<Leader>g`       | definition of keyword under cursor            |
+| `<>` _re_`<Leader>g`       | definition of keyword under cursor            |
 | `` `{mark}`` _re_ `<Leader>m` | a mark                                          |
 
 Vim maintains multiple jump lists. Each is scoped to a window.
