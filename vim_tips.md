@@ -187,6 +187,8 @@ any kind of parenthesis or `"` and `'`, like text-objects.
 works also for XML tags and language constructs like `do end` and `if
 end` in ruby when the _matchit_ plugin is enabled.
 
+Use it with `V` to for example copy a whole function, including the function name outside the parenthesis, when you are at the beginning or end: `V%y`.
+
 #### Jump list
 
 `<C-o>` is like back in a browser and `<C-i>` like forward. `:jumps`
