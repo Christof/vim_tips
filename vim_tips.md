@@ -549,9 +549,9 @@ are available:
 |                         | `<C-w>T`            | Move the current window into its own tab                   |
 | `:tabc[lose]`           |                     | Close the current tab and all of its windows               |
 | `:tabo[nly]`            |                     | Keep the active tab page, closing all others               |
-| `:tab[ext] {number}`    |                     | Switch to tab page {number}                                |
-| `:tab[ext]`             | `gt` __re__ `<S-k>` | Switch to next tab page (right)                            |
-| `:tap[revious]`         | `gT` __re__ `<S-j>` | Switch to previous tab page (left)                         |
+| `:tabn[ext] {number}`   |                     | Switch to tab page {number}                                |
+| `:tabn[ext]`            | `gt` __re__ `<S-k>` | Switch to next tab page (right)                            |
+| `:tabp[revious]`        | `gT` __re__ `<S-j>` | Switch to previous tab page (left)                         |
 | `:tapmove {number}`     |                     | Move current tab page to {number}, or end if it is omitted |
 
 `:tabd[o]` is like `:argdo` but executes the given command in the
