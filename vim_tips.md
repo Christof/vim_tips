@@ -1,25 +1,28 @@
 # Vim tips
+
 ## Notes
-In all code examples * denotes the cursor position.
+
+In all code examples \* denotes the cursor position.
 _re_ after a command and in front of another command means that the default command which is the first one is remapped to the second, e.g. `<C-]>` _re_`<C-j>`.
 
 ## Normal mode
+
 ### Shortcuts
 
-| Longhand | Compound | Descriptions                                               |
-| -------- | -------- | ------------                                               |
-| `cl`     | `s`      | Replaces the underlying character but stays in insert mode |
-| `^C`     | `S`      | Changes the whole line independent of cursor position      |
-| `U`      |          | Undo all changes in the current line                       |
-| `vim.slp.buf.hover()`  | `K`          | Shows documentation of symbol under cursor. Jumps to help section when already in help.  |
-|          | `KK`          | Same as above, but it jumps into the floating window  |
-| `vim.lsp.buf.definition()` | `<C-]>` _re_ `gd` | Go to definition                                        |
-| `vim.lsp.buf.references()`    | `grr` | List all references to the symbol under the cursor in quifix list           |
-| `vim.lsp.buf.rename()` | `grn` | Rename variable or function                                |
-| `vim.lsp.buf.code_action()` | `gra` | Runs a code action                                         |
-| `vim.lsp.buf.implementation()` | `gri` | Lists all implementations for the sysmbol under the cursor in the quickfix window   |
-| `vim.lsp.buf.document_symbol()` | `gO` | Lists all symbols in the current buffer in the quickfix window  |
-| `vim.lsp.buf.signature_help()` | `<C-s>` | Shows signature information of the symbol in insert mode |
+| Longhand                        | Compound          | Descriptions                                                                            |
+| ------------------------------- | ----------------- | --------------------------------------------------------------------------------------- |
+| `cl`                            | `s`               | Replaces the underlying character but stays in insert mode                              |
+| `^C`                            | `S`               | Changes the whole line independent of cursor position                                   |
+| `U`                             |                   | Undo all changes in the current line                                                    |
+| `vim.slp.buf.hover()`           | `K`               | Shows documentation of symbol under cursor. Jumps to help section when already in help. |
+|                                 | `KK`              | Same as above, but it jumps into the floating window                                    |
+| `vim.lsp.buf.definition()`      | `<C-]>` _re_ `gd` | Go to definition                                                                        |
+| `vim.lsp.buf.references()`      | `grr`             | List all references to the symbol under the cursor in quifix list                       |
+| `vim.lsp.buf.rename()`          | `grn`             | Rename variable or function                                                             |
+| `vim.lsp.buf.code_action()`     | `gra`             | Runs a code action                                                                      |
+| `vim.lsp.buf.implementation()`  | `gri`             | Lists all implementations for the sysmbol under the cursor in the quickfix window       |
+| `vim.lsp.buf.document_symbol()` | `gO`              | Lists all symbols in the current buffer in the quickfix window                          |
+| `vim.lsp.buf.signature_help()`  | `<C-s>`           | Shows signature information of the symbol in insert mode                                |
 
 ### Copy & Paste
 
@@ -89,7 +92,7 @@ Some more special registers:
 ### Operator commands
 
 | Trigger | Effect         |
-| ------- | ------         |
+| ------- | -------------- |
 | `g~`    | Swap case      |
 | `gu`    | Make lowercase |
 | `gU`    | Make uppercase |
@@ -97,9 +100,11 @@ Some more special registers:
 | `<`     | Shift left     |
 
 ### Motions
+
 #### Basic motion commands
+
 | Command     | Motion                                     |
-| -------     | ------                                     |
+| ----------- | ------------------------------------------ |
 | `j`         | Down one real line                         |
 | `gj`        | Down one display line                      |
 | `g{motion}` | Motion on display lines                    |
@@ -121,12 +126,13 @@ equivalent (`W`, `B`, `E`, `gE`) which uses the WORD definition. A WORD
 is a sequence of nonblank characters separated with whitespace.
 
 #### Search
+
 Vim has character search commands, which are handy to navigate within a
 line, because they move to the next occurrence of the specified
 character:
 
 | Command        | Description                                           |
-| -------        | -----------                                           |
+| -------------- | ----------------------------------------------------- |
 | `f{character}` | Forward to the next occurrence                        |
 | `F{character}` | Backward to the next occurrence                       |
 | `t{character}` | Forward to the character before the next occurrence   |
@@ -137,11 +143,12 @@ character:
 The search command is exclusive so you can use it in `d{motion}`
 commands and search for the first word which should not be deleted:
 
-	*This is an example
-	d/an<CR>
-	*an example
+    *This is an example
+    d/an<CR>
+    *an example
 
 #### Text objects
+
 Text objects can be used to select sections of text with particular
 start and end patterns like code blocks `{}`, arrays `[]` or tags
 `<a>...</a>`. To select the inside of such a section without the start
@@ -150,7 +157,7 @@ After one of those two characters a second character indicates the kind
 of section which should be selected:
 
 | Character  | Selection   |
-| ---------  | ---------   |
+| ---------- | ----------- |
 | `)` or `b` | `(...)`     |
 | `}` or `B` | `{...}`     |
 | `]`        | `[...]`     |
@@ -176,7 +183,7 @@ delimiters, change delimiters or delete delimiters. Delimiters can be
 any kind of parenthesis or `"` and `'`, like text-objects.
 
 | Old text         | Command | New text         | Description              |
-| -------          | ------- | --------         | -----------              |
+| ---------------- | ------- | ---------------- | ------------------------ |
 | `Hello w*orld`   | `ysiw)` | `Hello (world)`  | Add surroundings `ys`    |
 | `"Hello *world"` | `cs"'`  | `'*Hello world'` | Change surroundings `cs` |
 | `"Hello *world"` | `ds"`   | `*Hello world`   | Delete surroundings `ds` |
@@ -197,7 +204,7 @@ or word motions and can move between files. Some jump commands
 are listed below:
 
 | Command                       | Jumps to                                        |
-| -------                       | ------                                          |
+| ----------------------------- | ----------------------------------------------- |
 | `[line]G`                     | specified line                                  |
 | /{pattern}                    | pattern                                         |
 | `%`                           | matching parenthesis                            |
@@ -205,7 +212,7 @@ are listed below:
 | `{`/`}`                       | start of previous/next paragraph                |
 | `H`/`M`/`L`                   | start of top/middle/bottom of screen            |
 | `gf`                          | file name under the cursor (suffixesadd option) |
-| `<>` _re_`<Leader>g`       | definition of keyword under cursor            |
+| `<>` _re_`<Leader>g`          | definition of keyword under cursor              |
 | `` `{mark}`` _re_ `<Leader>m` | a mark                                          |
 
 Vim maintains multiple jump lists. Each is scoped to a window.
@@ -215,7 +222,7 @@ Vim maintains multiple jump lists. Each is scoped to a window.
 This is a record of made changes and can be queried with `:changes`.
 
 | Command | Effect                                               |
-| ------- | ------                                               |
+| ------- | ---------------------------------------------------- |
 | `g;`    | Go backward in change list                           |
 | `g,`    | Go forward in change list                            |
 | `gi`    | Go to last insert location and switch to insert mode |
@@ -224,12 +231,12 @@ This is a record of made changes and can be queried with `:changes`.
 
 To mark a location use `m{a-zA-Z}` the lowercase letters are local to
 the file the uppercase letters are global. `´{mark}` move to the line of
-the mark. `` `{mark}`` _re_`<C-m>{mark}` moves to the exact 
+the mark. `` `{mark}`` _re_`<C-m>{mark}` moves to the exact
 position. Vim defines some special markers:
 
 | Shortcut | Description                                       |
-| -------- | -----------                                       |
-| `` `` `` | Position before the last jump within current file |
+| -------- | ------------------------------------------------- |
+| ``       | Position before the last jump within current file |
 | `` `. `` | Location of last change                           |
 | `` `^ `` | Location of last insertion                        |
 | `` `[ `` | Start of last change or yank                      |
@@ -265,21 +272,23 @@ like: `:let @{register}=substitute(@{register}, '{pattern}',
 '{replacement}', '{options like g}'`.
 
 #### Executing macros in multiple files
+
 Macros can be executed in multiple files by putting all files which
 should be changed into the argument list (`:args {filepattern}`). The
 macro can be recorded as usual. Since the macro will be applied to all
 buffers, the current changes should be reverted with `:edit!`. `:argdo
 normal @{register}` executes the macro in all files. An alternative
+
 - which executes the macro in series - is to move to the next buffer with
-`:next` (or `:wnext` which also saves the changes) at the end of the macro 
-and execute it multiple times by prefixing the macro call with a count.
+  `:next` (or `:wnext` which also saves the changes) at the end of the macro
+  and execute it multiple times by prefixing the macro call with a count.
 
 #### Example: Number items in a list
 
 ```
 :let i = 1           // declare a Vim script variable i
 qa                   // start macro recoding
-I<C-r>=i<CR>) <ESC>  // go to insert mode, evaluate i and add ) 
+I<C-r>=i<CR>) <ESC>  // go to insert mode, evaluate i and add )
 :let i += 1          // increase i by 1
 q                    // stop recording
 jVG                  // go to next line and select until the end
@@ -287,18 +296,21 @@ jVG                  // go to next line and select until the end
 ```
 
 ### Little things
+
 #### Arithmetic
+
 `<C-a>` adds `[count]` to the number at or after the cursor, `<C-x>`
 subtracts. If no number is given the default is 1.
 
 #### Help
+
 `:h[elp] {topic}` is the built in help system. `:h index` for example shows
 all key mappings.
 
 ## Insert mode
 
 | Shortcut               | Description                             |
-| --------               | -----------                             |
+| ---------------------- | --------------------------------------- |
 | `<C-h>`                | Same as backspace                       |
 | `<C-w>`                | Delete back one word                    |
 | `<C-u>`                | Delete back to start of line            |
@@ -321,7 +333,7 @@ insert mode.
 Some normal mode commands which goes along the above shown shortcuts
 
 | Command     | Description                          |
-| -------     | -----------                          |
+| ----------- | ------------------------------------ |
 | `ga`        | Show code for character under cursor |
 | `:digraphs` | Show a table of digraphs             |
 
@@ -333,7 +345,6 @@ problem in Replace mode if the mode is started on one of the 'spaces'
 representing the tab. An alternative is the Virtual Replace mode which
 handles the tab character like some space characters and is triggered
 with `gR`.
-
 
 ## Visual mode
 
@@ -378,7 +389,7 @@ The basic structure of an Ex Command is: `:[range]{command}
 achieved with Ex commands (the optional range is omitted):
 
 | Command                         | Explanation                                                   |
-| -------                         | -----------                                                   |
+| ------------------------------- | ------------------------------------------------------------- |
 | `:delete [x]`                   | Delete specified lines [into register x]                      |
 | `:yank [x]`                     | Yank specified lines [into register x]                        |
 | `:[line]put [x]`                | Put the text form register x after the specified line         |
@@ -393,7 +404,7 @@ If the range is not given, the current line is used. The range can be
 specified with the following symbols:
 
 | Symbol        | Meaning                                         |
-| ------        | -------                                         |
+| ------------- | ----------------------------------------------- |
 | `{number}`    | Addresses the line number of the file           |
 | `$`           | Addresses the last line of the file             |
 | `0`           | Addresses the virtual line above the first line |
@@ -417,7 +428,7 @@ with `@:`, the command can be repeated with `@@`.
 
 Typing of commands can be shortened by using autocompletion with
 `<Tab>`. The history of executed Ex commands can be traversed with
-`<Up>` and `<Down>` __re__ `<C-p>` and `<C-n>`.
+`<Up>` and `<Down>` **re** `<C-p>` and `<C-n>`.
 
 ### Global commands
 
@@ -451,10 +462,10 @@ Vim can call shell commands and outputs from the shell commands can be
 inserted as text.
 
 | Command                | Description                                                    |
-| -------                | -----------                                                    |
+| ---------------------- | -------------------------------------------------------------- |
 | `:shell`               | Starts a shell (return to Vim by typing exit)                  |
 | `:!{cmd}`              | Execute {cmd} with the shell (return with enter)               |
-| `:read !{cmd}`         | Execute {cmd} and insert its standard output below the cursor   |
+| `:read !{cmd}`         | Execute {cmd} and insert its standard output below the cursor  |
 | `:[range]write !{cmd}` | Execute {cmd} with [range] lines as standard input             |
 | `:[range]!{filter}`    | Filter the specified [range] through external program {filter} |
 | `!{motion}`            | Start Command-line mode prepopulated with corresponding range  |
@@ -464,10 +475,10 @@ inserted as text.
 The `:edit {filepath}` command opens a file for editing. It accepts
 absolute and relative paths. Tab completion also works for the paths.
 The `%` symbol expands to the filepath of the active buffer, `%:h`
-__re__ `%%` expands only to the path of the active buffer.
+**re** `%%` expands only to the path of the active buffer.
 
 Another method to open files is to used the `:find` command. It searches
-for the passed filename in the `path`. The path can be set like 
+for the passed filename in the `path`. The path can be set like
 `:set path+=app/**` (something like this is done automatically by
 rails.vim). A `<Tab>` expands the path of the found file and cycles
 through the matches.
@@ -475,12 +486,12 @@ through the matches.
 The `:ls` command shows all loaded buffers in the Buffer list. `%`
 indicates the visible buffer and `#` shows the alternate buffer. We can
 quickly switch between these two buffers by pressing `<C-^>`. `:bprev`
-__re__ `<Leader>b`, `:bnext` __re__ `<Leader>B`, `:bfirst` and `:blast`
+**re** `<Leader>b`, `:bnext` **re** `<Leader>B`, `:bfirst` and `:blast`
 move you through the list. `:buffer {number|name}` jumps directly to a
 buffer. `:bdelete {number1 number2 ...}` or `:startNumber,endNumber
 bdelete` delete the corresponding buffers. A modified file is indicated
 with `+`. A command which would switch the buffer raises an error if the
-current buffer is modified.  Such a command can be executed without an
+current buffer is modified. Such a command can be executed without an
 error by using the `!` as postfix, like `:bnext!`. Now the modified
 files is marked with the letter `h` for hidden. The current buffer is
 marked with an `a` for active. If the `hidden` option is set, the `!`
@@ -497,7 +508,7 @@ started automatically.
 
 A file which is only editable by a super user, can normally not be saved
 by Vim, when Vim is not started by a super user. Using the following
-command this can be circumvented: `:w !sudo tee % > /dev/null` __re__
+command this can be circumvented: `:w !sudo tee % > /dev/null` **re**
 `:wsu`.
 
 ## Split Windows
@@ -505,7 +516,7 @@ command this can be circumvented: `:w !sudo tee % > /dev/null` __re__
 The active window can be subdivided with following commands:
 
 | Command            | Description                                                               |
-| -------            | -----------                                                               |
+| ------------------ | ------------------------------------------------------------------------- |
 | `<C-w>s`           | Split the current window horizontally                                     |
 | `:sp[lit] {file}`  | Split the current window horizontally, loading {file} into the new window |
 | `<C-w>v`           | Split the current window vertically                                       |
@@ -518,7 +529,7 @@ The active window can be subdivided with following commands:
 Navigation between the windows is achieved with:
 
 | Command  | Description                   |
-| -------  | -----------                   |
+| -------- | ----------------------------- |
 | `<C-w>w` | Cycles to the next window     |
 | `<C-w>h` | Focus the window to the left  |
 | `<C-w>j` | Focus the window below        |
@@ -528,7 +539,7 @@ Navigation between the windows is achieved with:
 The size of the windows is changed with the following keystrokes:
 
 | Command       | Description                              |
-| -------       | -----------                              |
+| ------------- | ---------------------------------------- |
 | `<C-w>=`      | Equalize width and height of all windows |
 | `<C-w>_`      | Maximize height of the active window     |
 | `<C-w>bar`    | Maximize width of the active window      |
@@ -543,15 +554,15 @@ Vim also supports tabs to manage multiple files. The following commands
 are available:
 
 | Ex Command              | Normal Command      | Descriptions                                               |
-| ----------              | --------------      | ------------                                               |
-| `:tabnew {filename}`    | __re__ `<C-t>`      | Open {filename} in a new tab or an empty new tab           |
+| ----------------------- | ------------------- | ---------------------------------------------------------- |
+| `:tabnew {filename}`    | **re** `<C-t>`      | Open {filename} in a new tab or an empty new tab           |
 | `:tabe[dit] {filename}` |                     | Open {filename} in a new tab                               |
 |                         | `<C-w>T`            | Move the current window into its own tab                   |
 | `:tabc[lose]`           |                     | Close the current tab and all of its windows               |
 | `:tabo[nly]`            |                     | Keep the active tab page, closing all others               |
 | `:tabn[ext] {number}`   |                     | Switch to tab page {number}                                |
-| `:tabn[ext]`            | `gt` __re__ `<S-k>` | Switch to next tab page (right)                            |
-| `:tabp[revious]`        | `gT` __re__ `<S-j>` | Switch to previous tab page (left)                         |
+| `:tabn[ext]`            | `gt` **re** `<S-k>` | Switch to next tab page (right)                            |
+| `:tabp[revious]`        | `gT` **re** `<S-j>` | Switch to previous tab page (left)                         |
 | `:tapmove {number}`     |                     | Move current tab page to {number}, or end if it is omitted |
 
 `:tabd[o]` is like `:argdo` but executes the given command in the
@@ -608,7 +619,7 @@ case as long as now uppercase character is in the search pattern.
 
 In the default mode parenthesis `()` must be escaped for grouping. `{}`
 are per default also matched literally whereas square brackets `[]` have
-special meaning. A pattern for 6 digit hex values like a color in CSS 
+special meaning. A pattern for 6 digit hex values like a color in CSS
 would look like:
 
 ```
@@ -617,7 +628,7 @@ would look like:
 
 Note that the curly brackets only have to be escaped when they are
 opened. The very magic search is closer to Perl, Python or Ruby regular
-expressions and is enabled with `\v`. Now all characters except '_',
+expressions and is enabled with `\v`. Now all characters except '\_',
 letters and numbers have special meaning. The color example now could be
 written as:
 
@@ -665,8 +676,8 @@ Another example is matching the content of a string without the
 delimiters: `/\v"\zs[^"]+\ze"`.
 
 | Character(s) | Meaning in regular expression                |
-| ------------ | -----------------------------                |
-| `\w`         | Word characters: letters, numbers and '_'    |
+| ------------ | -------------------------------------------- |
+| `\w`         | Word characters: letters, numbers and '\_'   |
 | `\W`         | Everything except word characters            |
 | `%(...)`     | Don't capture submatch                       |
 | `\_s`        | Matches whitespace or line break             |
@@ -675,6 +686,7 @@ delimiters: `/\v"\zs[^"]+\ze"`.
 | `\ze`        | End of the match (also zero width)           |
 
 <a id="Substitution"></a>
+
 ## Substitution
 
 Vim supports powerful substitutions with following ex command:
@@ -683,20 +695,20 @@ Vim supports powerful substitutions with following ex command:
 
 The flags are explained in the table below:
 
-| Flag | Meaning                                                                         |
-| ---- | -------                                                                         |
-| `g`  | Globally applies substitution, which means not just the first in each line      |
-| `c`  | Substitutions must be confirmed or rejected                                     |
+| Flag | Meaning                                                                        |
+| ---- | ------------------------------------------------------------------------------ |
+| `g`  | Globally applies substitution, which means not just the first in each line     |
+| `c`  | Substitutions must be confirmed or rejected                                    |
 | `n`  | Suppresses the substitution behavior and counts the occurrences of the pattern |
-| `i`  | Ignore case for the pattern regardless of the overall settings                  |
-| `I`  | Don't ignore case for the pattern regardless of the overall settings            |
-| `&`  | Reuses flags from last substitution                                             |
-| `e`  | Suppress error messages                                                         |
+| `i`  | Ignore case for the pattern regardless of the overall settings                 |
+| `I`  | Don't ignore case for the pattern regardless of the overall settings           |
+| `&`  | Reuses flags from last substitution                                            |
+| `e`  | Suppress error messages                                                        |
 
 When searching with the `c` flag the following options are available:
 
 | Option  | Meaning                                          |
-| ------  | -------                                          |
+| ------- | ------------------------------------------------ |
 | `y`     | Substitute this match                            |
 | `n`     | Skip this match                                  |
 | `q`     | Quit substituting                                |
@@ -708,11 +720,11 @@ When searching with the `c` flag the following options are available:
 Special characters for the replacement string:
 
 | Symbol          | Description                                                   |
-| ------          | -----------                                                   |
+| --------------- | ------------------------------------------------------------- |
 | `\r`            | Insert a carriage return                                      |
 | `\t`            | Insert a tab character                                        |
 | `\\`            | Insert a backslash character                                  |
-| `\{1-9}`        | Insert the first to ninth submatch                           |
+| `\{1-9}`        | Insert the first to ninth submatch                            |
 | `\0` or `&`     | Insert the entire matched pattern                             |
 | `~`             | Use {string} from the previous substitution command execution |
 | `\={Vim script} | Evaluate {Vim script} expression and use it as {string}       |
@@ -733,7 +745,7 @@ The last substitution can be repeated on the whole file by pressing `g&`
 which is equivalent to `:%s//~/&`. `:&` (or `&` in Normal mode) repeats
 the last substitution command. If another ampersand is added (`:&&`) the
 last flags also are reused.
-__re__: `:&&` is mapped to `&` in Normal and Visual mode.
+**re**: `:&&` is mapped to `&` in Normal and Visual mode.
 
 Submatches can be accessed in Vim script with the `submatch({0-9})`
 function. For example to increment each HTML heading this feature could
@@ -745,7 +757,7 @@ be used with a little help of a dictionary in Vim script:
 ```
 /\v(<a>|<b>) // searches for both words
 // uses lookup dictionary to find right replacement
-:%s//\={"b":a,"a":b}[submatch(1)]/g 
+:%s//\={"b":a,"a":b}[submatch(1)]/g
 
 ```
 
@@ -769,7 +781,7 @@ qargs plugin or a Vim script (part of
 ```
 :vimgrep /Searching **/*.txt // search for the pattern
 :Qargs                       // load Quickfix list fies as arguments
-:argdo %s//replacement/ge  
+:argdo %s//replacement/ge
 :argdo update                // to save the files
 ```
 
@@ -777,6 +789,7 @@ The last three commands could be executed using the bar operator like:
 `Qargs | argdo %s/replacement/ge | update`.
 
 ## Tools
+
 ### ctags
 
 To use ctags it must be installed on the system. It is called
@@ -788,7 +801,7 @@ every time after a file is saved: `:autocmd BufWritePost * call
 system("ctags -R")`. The tags are stored in a plain text file which is
 called tags. Keywords are addressed with a search command. This ensures
 that little changes don't require updating of the tags.
-Placing the cursor on a word and pressing `<C-]>` __re__ `<Leader>g`
+Placing the cursor on a word and pressing `<C-]>` **re** `<Leader>g`
 moves to the definition of the word under the cursor. Vim maintains a
 history of all jumps. The `<C-t>` shortcut or `:pop` go back in the history. If
 a keyword has multiple matches the one with the highest priority (for
@@ -811,7 +824,7 @@ through the quickfix list (and through the location list if the prefix
 `c` is replaced with an `l`):
 
 | Command   | Action                                                         |
-| -------   | ------                                                         |
+| --------- | -------------------------------------------------------------- |
 | `:cnext`  | Jump to next item                                              |
 | `:cprev`  | Jump to previous item                                          |
 | `:cfirst` | Jump to first item                                             |
@@ -876,7 +889,7 @@ option can be set, so that the casing is inferred from the typed
 characters. Vim supports multiple completion types:
 
 | Command      | Type of completion      |
-| -------      | ------------------      |
+| ------------ | ----------------------- |
 | `<C-n>`      | Generic keywords        |
 | `<C-x><C-n>` | Current buffer keywords |
 | `<C-x><C-i>` | Included file keywords  |
@@ -890,7 +903,7 @@ Independent from the type of completion the list of suggestions can be
 used with the following commands:
 
 | Command         | Description                                  |
-| -------         | -----------                                  |
+| --------------- | -------------------------------------------- |
 | `<C-n>`         | Use next item                                |
 | `<C-p>`         | Use previous item                            |
 | `<Down>`        | Select next item                             |
@@ -928,7 +941,7 @@ following commands are available to move between unknown words and to
 interact with the dictionary:
 
 | Command | Description                                  |
-| ------- | -----------                                  |
+| ------- | -------------------------------------------- |
 | `[s`    | Jump to next spelling error                  |
 | `]s`    | Jump to previous spelling error              |
 | `z=`    | Suggest corrections for current word         |
@@ -962,11 +975,11 @@ setting it for the current session with an Ex command. The list of
 options is shown with `:h option-list`. For boolean options like
 `ignorecase` the following operations can be performed:
 
-* `:set ignorecase` enabled the feature
-* `:set noignorecase` disables the feature
-* `:set ignorecase!` toggles the setting
-* `:set ignorecase?` returns the current value of the option
-* `:set ignorecase&` reset the option to the default value
+- `:set ignorecase` enabled the feature
+- `:set noignorecase` disables the feature
+- `:set ignorecase!` toggles the setting
+- `:set ignorecase?` returns the current value of the option
+- `:set ignorecase&` reset the option to the default value
 
 Settings with values can be changed like: `:set tabstop=2`.
 `:setlocal` can be used instead of `:set` to change the settings only
@@ -975,10 +988,10 @@ for the active buffer or window (for example for `number`).
 Changes can be written es Ex commands in any file. The file can be
 loaded with `:source {filename}` which executes each line as Ex command.
 The `.vimrc` file is opened with the command `:edit $MYVIMRC`. After
-performing changes in the file the system can be updated with 
+performing changes in the file the system can be updated with
 `:source $MYVIMRC`. If the file is in the active buffer then `:so %` can
 be used as shortcut.
- 
+
 To change settings depending on the file type the `autocmd` can be used,
 which listens to events, like file types. To change the tabbing for ruby
 the following command can be used: `autocmd FileType ruby setlocal
@@ -987,4 +1000,3 @@ work: `filetype on`. An alternative which is useful for many changes is the
 `ftplugin`. This loads whole files (residing in the `ftplugin` directory
 of the `.vim` folder) depending on the file type. It is enabled with
 `filetype plugin on`.
-
