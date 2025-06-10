@@ -511,6 +511,8 @@ by Vim, when Vim is not started by a super user. Using the following
 command this can be circumvented: `:w !sudo tee % > /dev/null` **re**
 `:wsu`.
 
+A unnamed buffer can be created with `:enew` or `:new`.
+
 ## Split Windows
 
 The active window can be subdivided with following commands:
