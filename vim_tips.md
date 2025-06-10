@@ -477,6 +477,9 @@ absolute and relative paths. Tab completion also works for the paths.
 The `%` symbol expands to the filepath of the active buffer, `%:h`
 **re** `%%` expands only to the path of the active buffer.
 
+`:e ++{optname}` adds options to the file being opened. For example
+`:e ++enc=utf-8` opens the file with UTF-8 encoding.
+
 Another method to open files is to used the `:find` command. It searches
 for the passed filename in the `path`. The path can be set like
 `:set path+=app/**` (something like this is done automatically by
@@ -500,6 +503,9 @@ working with the argument list (`:argdo`). When Vim is closed with `:q`,
 it loads the first hidden file, which can be saved with `:w` or
 discarded with `:e!`. `:qa[ll]` closes all windows, discarding changes
 without warning. `:wa[ll]` writes all modified buffers to disk.
+
+`:w ++p` ensures that all directories in the path are created before
+the file is written.
 
 If Vim is started by passing a directory as argument, it starts netrw,
 its file explorer. Netrw is also started when passing a directory to
