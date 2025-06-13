@@ -611,8 +611,10 @@ with `<CR>`. The Command-Line Window prepopulated with the last executed
 commands is opened with `q:`.
 
 `gn` moves to next search result and uses visual mode to select it. This
-can be useful to combine with actions like `dgn`. Also the `.` command
-now both moves to the next result and performs the action.
+can be useful to combine with actions like `dgn` or `cgn`.
+Also the `.` command now both moves to the next result and performs the action.
+`gN` does the same in the opposite direction, but it doesn't work with `.`
+as the same result would be changed again.
 
 ## Patterns
 
